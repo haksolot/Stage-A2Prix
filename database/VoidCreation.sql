@@ -96,6 +96,7 @@ CREATE TABLE Stage(
    Places INT NOT NULL,
    Nb_Postulants INT NOT NULL,
    Date_Parution DATE NOT NULL,
+   Notation INT,
    ID_Compétences INT NOT NULL,
    ID_Entreprise INT NOT NULL,
    PRIMARY KEY(ID_Stage),
@@ -118,6 +119,24 @@ CREATE TABLE Souhaiter(
    ID_Stage VARCHAR(50),
    ID_User VARCHAR(50),
    Wishlist bool,
+   PRIMARY KEY(ID_Stage, ID_User),
+   FOREIGN KEY(ID_Stage) REFERENCES Stage(ID_Stage),
+   FOREIGN KEY(ID_User) REFERENCES Étudiant(ID_User)
+);
+
+CREATE TABLE Evaluer(
+   ID_Entreprise INT,
+   ID_User VARCHAR(50),
+   Note INT,
+   PRIMARY KEY(ID_Entreprise, ID_User),
+   FOREIGN KEY(ID_Entreprise) REFERENCES Entreprise(ID_Entreprise),
+   FOREIGN KEY(ID_User) REFERENCES Utilisateur(ID_User)
+);
+
+CREATE TABLE Noter(
+   ID_Stage VARCHAR(50),
+   ID_User VARCHAR(50),
+   Note INT,
    PRIMARY KEY(ID_Stage, ID_User),
    FOREIGN KEY(ID_Stage) REFERENCES Stage(ID_Stage),
    FOREIGN KEY(ID_User) REFERENCES Étudiant(ID_User)
