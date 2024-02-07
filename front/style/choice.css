@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Nunito:wght@500&family=Silkscreen&display=swap');
+
+h1{
+    width: 70%;
+    position: absolute;
+    font-family: Inter;
+    font-size: 5vw;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    user-select: none;
+    color: #989898;
+}
+
+#etudiant{
+    background-color: #99FF90;
+    border-radius: 1vw;
+    color: white;
+    text-decoration: none;
+}
+
+#pilote{
+    background-color: #F0FD5D;
+    border-radius: 1vw;
+    color:#818181;
+    text-decoration: none;
+}
