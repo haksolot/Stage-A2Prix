@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Nunito:wght@500&family=Silkscreen&display=swap');
+
+#background{
+    background-color: #D9D9D9;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 450px;
+    
+}
+
+#left{
+    flex-direction: column;
+    flex: 2;
+}
+
+#right{
+    flex-direction: column;
+    flex: 1;
+}
+
+#title{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+h1{
+    margin: 10px;
+    width: auto;
+    font-family: Inter;
+    color: #A3A3A3;
+}
+
+h2{
+    margin: 10px;
+    flex: 1;
+    font-family: Inter;
+    color: #A3A3A3;
+}
+
+#address{
+    margin: 10px;
+    font-family: Inter;
+    color: #A3A3A3;
+}
