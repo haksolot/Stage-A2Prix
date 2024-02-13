@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Nunito:wght@500&family=Silkscreen&display=swap');
 
+body{
+    background-color: #FFFFFF;
+}
+
 h1{
     width: 70%;
     position: absolute;
