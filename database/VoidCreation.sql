@@ -1,5 +1,5 @@
 CREATE TABLE Utilisateur(
-   ID_User VARCHAR(50),
+   ID_User INT,
    Nom_user VARCHAR(50) NOT NULL,
    Prenom_user VARCHAR(50) NOT NULL,
    Password VARCHAR(50) NOT NULL,
@@ -20,17 +20,17 @@ CREATE TABLE Secteur(
 );
 
 CREATE TABLE Admin(
-   ID_User VARCHAR(50),
-   PRIMARY KEY(ID_User),
-   FOREIGN KEY(ID_User) REFERENCES Utilisateur(ID_User)
+   ID_Admin INT,
+   PRIMARY KEY(ID_Admin),
+   FOREIGN KEY(ID_Admin) REFERENCES Utilisateur(ID_User)
 );
 
 CREATE TABLE Pilote(
-   ID_User_1 VARCHAR(50),
-   ID_User VARCHAR(50) NOT NULL,
-   PRIMARY KEY(ID_User_1),
-   FOREIGN KEY(ID_User_1) REFERENCES Utilisateur(ID_User),
-   FOREIGN KEY(ID_User) REFERENCES Admin(ID_User)
+   ID_Pilote INT,
+   ID_Admin INT NOT NULL,
+   PRIMARY KEY(ID_Pilote),
+   FOREIGN KEY(ID_Pilote) REFERENCES Utilisateur(ID_User),
+   FOREIGN KEY(ID_Admin) REFERENCES Admin(ID_Admin)
 );
 
 CREATE TABLE Département(
@@ -63,10 +63,10 @@ CREATE TABLE Centre(
 CREATE TABLE Promotion(
    ID_Promotion INT,
    Nom_Promo VARCHAR(50) NOT NULL,
-   ID_User VARCHAR(50) NOT NULL,
+   ID_Pilote VARCHAR(50) NOT NULL,
    ID_Formation INT NOT NULL,
    PRIMARY KEY(ID_Promotion),
-   FOREIGN KEY(ID_User) REFERENCES Pilote(ID_User_1),
+   FOREIGN KEY(ID_Pilote) REFERENCES Pilote(ID_Pilote),
    FOREIGN KEY(ID_Formation) REFERENCES Centre(ID_Formation)
 );
 
@@ -76,17 +76,17 @@ CREATE TABLE Entreprise(
    Type_Ent VARCHAR(50) NOT NULL,
    Nb_postulant INT NOT NULL,
    Evaluation DECIMAL(2,1) NOT NULL,
-   ID_User VARCHAR(50) NOT NULL,
+   ID_Pilote INT NULL,
    ID_City INT NOT NULL,
-   ID_User_1 VARCHAR(50) NOT NULL,
+   ID_Admin INT NULL,
    PRIMARY KEY(ID_Entreprise),
-   FOREIGN KEY(ID_User) REFERENCES Pilote(ID_User_1),
+   FOREIGN KEY(ID_User) REFERENCES Pilote(ID_Pilote),
    FOREIGN KEY(ID_City) REFERENCES Localisation(ID_City),
-   FOREIGN KEY(ID_User_1) REFERENCES Admin(ID_User)
+   FOREIGN KEY(ID_Admin) REFERENCES Admin(ID_Admin)
 );
 
 CREATE TABLE Stage(
-   ID_Stage VARCHAR(50),
+   ID_Stage INT,
    Compétences VARCHAR(50) NOT NULL,
    Durre VARCHAR(50) NOT NULL,
    Type_Promo VARCHAR(50) NOT NULL,
@@ -101,35 +101,35 @@ CREATE TABLE Stage(
 );
 
 CREATE TABLE Étudiant(
-   ID_User_2 VARCHAR(50),
+   ID_Student INT,
    Annee_Formation VARCHAR(50) NOT NULL,
-   ID_User VARCHAR(50) NOT NULL,
-   ID_User_1 VARCHAR(50) NOT NULL,
+   ID_Pilote INT NULL,
+   ID_Admin INT NULL,
    ID_Promotion INT NOT NULL,
-   PRIMARY KEY(ID_User_2),
-   FOREIGN KEY(ID_User_2) REFERENCES Utilisateur(ID_User),
-   FOREIGN KEY(ID_User) REFERENCES Pilote(ID_User_1),
-   FOREIGN KEY(ID_User_1) REFERENCES Admin(ID_User),
+   PRIMARY KEY(ID_Student),
+   FOREIGN KEY(ID_Student) REFERENCES Utilisateur(ID_User),
+   FOREIGN KEY(ID_Pilote) REFERENCES Pilote(ID_Pilote),
+   FOREIGN KEY(ID_Admin) REFERENCES Admin(ID_Admin),
    FOREIGN KEY(ID_Promotion) REFERENCES Promotion(ID_Promotion)
 );
 
 CREATE TABLE Candidater(
-   ID_Stage VARCHAR(50),
-   ID_User VARCHAR(50),
+   ID_Stage INT,
+   ID_Student INT,
    CV VARCHAR(50) NOT NULL,
    Lettre_Motiv VARCHAR(50) NOT NULL,
-   PRIMARY KEY(ID_Stage, ID_User),
+   PRIMARY KEY(ID_Stage, ID_Student),
    FOREIGN KEY(ID_Stage) REFERENCES Stage(ID_Stage),
-   FOREIGN KEY(ID_User) REFERENCES Étudiant(ID_User_2)
+   FOREIGN KEY(ID_Student) REFERENCES Étudiant(ID_Student)
 );
 
 CREATE TABLE Souhaiter(
-   ID_Stage VARCHAR(50),
-   ID_User VARCHAR(50),
+   ID_Stage INT,
+   ID_Student INT,
    Wishlist bool,
-   PRIMARY KEY(ID_Stage, ID_User),
+   PRIMARY KEY(ID_Stage, ID_Student),
    FOREIGN KEY(ID_Stage) REFERENCES Stage(ID_Stage),
-   FOREIGN KEY(ID_User) REFERENCES Étudiant(ID_User_2)
+   FOREIGN KEY(ID_Student) REFERENCES Étudiant(ID_Student)
 );
 
 CREATE TABLE Créer(
@@ -143,27 +143,27 @@ CREATE TABLE Créer(
 
 CREATE TABLE EVE(
    ID_Entreprise INT,
-   ID_User VARCHAR(50),
+   ID_Student INT,
    Note INT NOT NULL,
    PRIMARY KEY(ID_Entreprise, ID_User),
    FOREIGN KEY(ID_Entreprise) REFERENCES Entreprise(ID_Entreprise),
-   FOREIGN KEY(ID_User) REFERENCES Étudiant(ID_User_2)
+   FOREIGN KEY(ID_User) REFERENCES Étudiant(ID_Student)
 );
 
 CREATE TABLE EVA(
    ID_Entreprise INT,
-   ID_User VARCHAR(50),
+   ID_Admin INT,
    Note INT NOT NULL,
    PRIMARY KEY(ID_Entreprise, ID_User),
    FOREIGN KEY(ID_Entreprise) REFERENCES Entreprise(ID_Entreprise),
-   FOREIGN KEY(ID_User) REFERENCES Admin(ID_User)
+   FOREIGN KEY(ID_Admin) REFERENCES Admin(ID_Admin)
 );
 
 CREATE TABLE EVP(
    ID_Entreprise INT,
-   ID_User VARCHAR(50),
+   ID_Pilote INT,
    Note INT NOT NULL,
-   PRIMARY KEY(ID_Entreprise, ID_User),
+   PRIMARY KEY(ID_Entreprise, ID_Pilote),
    FOREIGN KEY(ID_Entreprise) REFERENCES Entreprise(ID_Entreprise),
-   FOREIGN KEY(ID_User) REFERENCES Pilote(ID_User_1)
+   FOREIGN KEY(ID_Pilote) REFERENCES Pilote(ID_Pilote)
 );
