@@ -36,6 +36,12 @@ h1{
     background-size: 20px;
     background-position: 20px;
     user-select: none;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#account-id:hover{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
 }
 
 #password{
@@ -51,6 +57,12 @@ h1{
     background-size: 18px;
     background-position: 20px;
     user-select: none;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#password:hover{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
 }
 
 #confirmation{
@@ -63,6 +75,13 @@ h1{
     background-repeat: no-repeat;
     background-size: 25px;
     background-position: 50%;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+}
+
+#confirmation:hover{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    background-color: #99FF90;
 }
 
 #texte{
