@@ -37,6 +37,7 @@ body{
     user-select: none;
     border-radius: 1.5vw;
     padding-left: 40px;
+    padding-right: 15px;
     font-family: Inter;
     background-image: url('/front/icons/search.svg');
     background-repeat: no-repeat;
@@ -52,6 +53,7 @@ body{
     user-select: none;
     border-radius: 1.5vw;
     padding-left: 40px;
+    padding-right: 15px;
     font-family: Inter;
     background-image: url('/front/icons/sector.svg');
     background-repeat: no-repeat;
@@ -68,6 +70,7 @@ body{
     user-select: none;
     border-radius: 1.5vw;
     padding-left: 35px;
+    padding-right: 15px;
     font-family: Inter;
     background-image: url('/front/icons/location.svg');
     background-repeat: no-repeat;
@@ -84,6 +87,7 @@ body{
     user-select: none;
     border-radius: 1.5vw;
     padding-left: 37px;
+    padding-right: 15px;
     font-family: Inter;
     background-image: url('/front/icons/center.svg');
     background-repeat: no-repeat;
@@ -110,8 +114,32 @@ body{
 
 #scroller{
     display: flex;
+    flex-direction: column;
     width: 100%;
     height: calc(100vh - 147px);
-    background-color: red;
+    background-color: #FFFFFF;
     overflow-y:auto;
+    align-items: center;
+    gap: 24px;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #FFFFFF;
+    /* border-radius: 10px; */
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #D9D9D9;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #A3A3A3;
+  }
