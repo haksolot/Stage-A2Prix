@@ -23,6 +23,22 @@ h1{
     gap: 24px;
 }
 
+@media screen and (max-width: 1000px){
+    #container{
+        width: 70%;
+        height: 350px;
+    }
+    #account-id{
+        font-size: 20px;
+    }
+    #password{
+        font-size: 20px;
+    }
+    h1{
+        font-size: 50px;
+    }
+}    
+
 #account-id{
     background-color: #D9D9D9;
     border: none;

@@ -91,10 +91,12 @@ body{
     padding-bottom: 10px;
     font-size: 0.9em; 
     font-weight: 600;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 #save:hover{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
     background-color: #99FF90;
     color: #FFFFFF;
 }
