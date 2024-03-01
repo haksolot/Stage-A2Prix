@@ -2,7 +2,7 @@
 
 .offer-background{
     background-color: #D9D9D9;
-    padding: 10px;
+    padding: 20px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -50,6 +50,8 @@
 .offer-right{
     flex-direction: column;
     flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
 .offer-title{
@@ -57,6 +59,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
+    gap:10px;
 }
 
 .offer-h1{
@@ -160,6 +163,8 @@
 }
 
 .offer-like-container{
+    position: relative;
+    top: -20px;
     display:flex;
     flex-direction: row;
     align-items: end;
