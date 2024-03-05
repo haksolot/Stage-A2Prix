@@ -20,13 +20,13 @@ CREATE TABLE Secteur(
 );
 
 CREATE TABLE Admin(
-   ID_Admin INT auto_increment,
+   ID_Admin INT,
    PRIMARY KEY(ID_Admin),
    FOREIGN KEY(ID_Admin) REFERENCES Utilisateur(ID_User)
 );
 
 CREATE TABLE Pilote(
-   ID_Pilote INT auto_increment,
+   ID_Pilote INT,
    ID_Admin INT NOT NULL,
    PRIMARY KEY(ID_Pilote),
    FOREIGN KEY(ID_Pilote) REFERENCES Utilisateur(ID_User),
@@ -108,7 +108,7 @@ CREATE TABLE Stage(
 );
 
 CREATE TABLE Étudiant(
-   ID_Student INT auto_increment,
+   ID_Student INT,
    Annee_Formation VARCHAR(50) NOT NULL,
    ID_Pilote INT NULL,
    ID_Admin INT NULL,
