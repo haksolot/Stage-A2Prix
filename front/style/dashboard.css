@@ -149,7 +149,6 @@ body{
 }
 
 #scroller{
-    padding-top: 11px;
     display: flex;
     flex-direction: column;
     width: 100%;
