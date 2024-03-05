@@ -42,14 +42,21 @@ CREATE TABLE Département(
    FOREIGN KEY(ID_Region) REFERENCES Région(ID_Region)
 );
 
+CREATE TABLE Ville(
+	ID_Ville INT,
+	Nom_Ville VARCHAR(50) NOT NULL,
+	CP INT NOT NULL,
+    ID_Departement INT NOT NULL,
+    PRIMARY KEY(ID_Ville),
+    FOREIGN KEY(ID_Departement) REFERENCES Département(ID_Department)
+);
+
 CREATE TABLE Localisation(
    ID_City INT,
-   Nom_Ville VARCHAR(50) NOT NULL,
    Adresse VARCHAR(50),
-   CP INT NOT NULL,
-   ID_Department INT NOT NULL,
+   ID_Ville INT NOT NULL,
    PRIMARY KEY(ID_City),
-   FOREIGN KEY(ID_Department) REFERENCES Département(ID_Department)
+   FOREIGN KEY(ID_Ville) REFERENCES Ville(ID_Ville)
 );
 
 CREATE TABLE Centre(
