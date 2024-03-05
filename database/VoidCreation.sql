@@ -80,7 +80,7 @@ CREATE TABLE Entreprise(
    ID_City INT NOT NULL,
    ID_Admin INT NULL,
    PRIMARY KEY(ID_Entreprise),
-   FOREIGN KEY(ID_User) REFERENCES Pilote(ID_Pilote),
+   FOREIGN KEY(ID_Pilote) REFERENCES Pilote(ID_Pilote),
    FOREIGN KEY(ID_City) REFERENCES Localisation(ID_City),
    FOREIGN KEY(ID_Admin) REFERENCES Admin(ID_Admin)
 );
@@ -145,16 +145,16 @@ CREATE TABLE EVE(
    ID_Entreprise INT,
    ID_Student INT,
    Note INT NOT NULL,
-   PRIMARY KEY(ID_Entreprise, ID_User),
+   PRIMARY KEY(ID_Entreprise, ID_Student),
    FOREIGN KEY(ID_Entreprise) REFERENCES Entreprise(ID_Entreprise),
-   FOREIGN KEY(ID_User) REFERENCES Étudiant(ID_Student)
+   FOREIGN KEY(ID_Student) REFERENCES Étudiant(ID_Student)
 );
 
 CREATE TABLE EVA(
    ID_Entreprise INT,
    ID_Admin INT,
    Note INT NOT NULL,
-   PRIMARY KEY(ID_Entreprise, ID_User),
+   PRIMARY KEY(ID_Entreprise, ID_Admin),
    FOREIGN KEY(ID_Entreprise) REFERENCES Entreprise(ID_Entreprise),
    FOREIGN KEY(ID_Admin) REFERENCES Admin(ID_Admin)
 );
