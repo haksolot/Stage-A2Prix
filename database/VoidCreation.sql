@@ -63,7 +63,7 @@ CREATE TABLE Centre(
 CREATE TABLE Promotion(
    ID_Promotion INT,
    Nom_Promo VARCHAR(50) NOT NULL,
-   ID_Pilote VARCHAR(50) NOT NULL,
+   ID_Pilote INT NOT NULL,
    ID_Formation INT NOT NULL,
    PRIMARY KEY(ID_Promotion),
    FOREIGN KEY(ID_Pilote) REFERENCES Pilote(ID_Pilote),
