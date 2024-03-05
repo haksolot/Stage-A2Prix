@@ -12,7 +12,7 @@ VALUES
 ('Le Mans', 72000, 72), -- Sarthe
 ('Lille', 59000, 59), -- Nord
 ('Lyon', 69000, 69), -- Rhône
-('Montpellier', 34000, 34), -- Hérault
+('Montpellier', 34000, 34), -- Héraultville
 ('Nancy', 54000, 54), -- Meurthe-et-Moselle
 ('Nantes', 44000, 44), -- Loire-Atlantique
 ('Nice', 06000, 6), -- Alpes-Maritimes
