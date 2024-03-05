@@ -1,5 +1,5 @@
 CREATE TABLE Utilisateur(
-   ID_User INT,
+   ID_User INT auto_increment,
    Nom_user VARCHAR(50) NOT NULL,
    Prenom_user VARCHAR(50) NOT NULL,
    Password VARCHAR(50) NOT NULL,
@@ -8,25 +8,25 @@ CREATE TABLE Utilisateur(
 );
 
 CREATE TABLE Région(
-   ID_Region INT,
+   ID_Region INT auto_increment,
    Nom_Reg VARCHAR(50) NOT NULL,
    PRIMARY KEY(ID_Region)
 );
 
 CREATE TABLE Secteur(
-   ID_Compétences INT,
+   ID_Compétences INT auto_increment,
    Nom_Secteur VARCHAR(50) NOT NULL,
    PRIMARY KEY(ID_Compétences)
 );
 
 CREATE TABLE Admin(
-   ID_Admin INT,
+   ID_Admin INT auto_increment,
    PRIMARY KEY(ID_Admin),
    FOREIGN KEY(ID_Admin) REFERENCES Utilisateur(ID_User)
 );
 
 CREATE TABLE Pilote(
-   ID_Pilote INT,
+   ID_Pilote INT auto_increment,
    ID_Admin INT NOT NULL,
    PRIMARY KEY(ID_Pilote),
    FOREIGN KEY(ID_Pilote) REFERENCES Utilisateur(ID_User),
@@ -34,7 +34,7 @@ CREATE TABLE Pilote(
 );
 
 CREATE TABLE Département(
-   ID_Department INT,
+   ID_Department INT auto_increment,
    Nom_Dep VARCHAR(50) NOT NULL,
    Num_Dep VARCHAR(50) NOT NULL,
    ID_Region INT NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE Département(
 );
 
 CREATE TABLE Ville(
-	ID_Ville INT,
+	ID_Ville INT auto_increment,
 	Nom_Ville VARCHAR(50) NOT NULL,
 	CP INT NOT NULL,
     ID_Departement INT NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE Ville(
 );
 
 CREATE TABLE Localisation(
-   ID_City INT,
+   ID_City INT auto_increment,
    Adresse VARCHAR(50),
    ID_Ville INT NOT NULL,
    PRIMARY KEY(ID_City),
@@ -60,7 +60,7 @@ CREATE TABLE Localisation(
 );
 
 CREATE TABLE Centre(
-   ID_Formation INT,
+   ID_Formation INT auto_increment,
    Nom_Centre VARCHAR(50) NOT NULL,
    ID_City INT NOT NULL,
    PRIMARY KEY(ID_Formation),
@@ -68,7 +68,7 @@ CREATE TABLE Centre(
 );
 
 CREATE TABLE Promotion(
-   ID_Promotion INT,
+   ID_Promotion INT auto_increment,
    Nom_Promo VARCHAR(50) NOT NULL,
    ID_Pilote INT NOT NULL,
    ID_Formation INT NOT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE Promotion(
 );
 
 CREATE TABLE Entreprise(
-   ID_Entreprise INT,
+   ID_Entreprise INT auto_increment,
    Nom_Ent VARCHAR(50) NOT NULL,
    Type_Ent VARCHAR(50) NOT NULL,
    Nb_postulant INT NOT NULL,
@@ -93,7 +93,7 @@ CREATE TABLE Entreprise(
 );
 
 CREATE TABLE Stage(
-   ID_Stage INT,
+   ID_Stage INT auto_increment,
    Compétences VARCHAR(50) NOT NULL,
    Durre VARCHAR(50) NOT NULL,
    Type_Promo VARCHAR(50) NOT NULL,
@@ -108,7 +108,7 @@ CREATE TABLE Stage(
 );
 
 CREATE TABLE Étudiant(
-   ID_Student INT,
+   ID_Student INT auto_increment,
    Annee_Formation VARCHAR(50) NOT NULL,
    ID_Pilote INT NULL,
    ID_Admin INT NULL,
