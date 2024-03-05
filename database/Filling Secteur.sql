@@ -1,0 +1,22 @@
+INSERT INTO Secteur (Nom_Secteur)
+VALUES
+('Informatique'),
+('Finance'),
+('Santé'),
+('Éducation'),
+('Industrie'),
+('Commerce'),
+('Immobilier'),
+('Tourisme'),
+('Transport'),
+('Art et Culture'),
+('Agroalimentaire'),
+('Énergie'),
+('Environnement'),
+('Services'),
+('Télécommunications'),
+('Mode et Beauté'),
+('Sport et Loisirs'),
+('Média'),
+('Juridique'),
+('Consulting');
