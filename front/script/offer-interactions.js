@@ -205,6 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Ajoutez la classe pour le mode édition
                 button.classList.add(editModeClass);
+                button.classList.replace('editing-state', 'confirmation-state');
             } else {
                 var titleH1Input = title.querySelector('.offer-h1-input');
                 var titleH2Input = title.querySelector('.offer-h2-input');
@@ -245,6 +246,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Retirez la classe pour le mode édition
                 button.classList.remove(editModeClass);
+                button.classList.replace('confirmation-state', 'editing-state');
             }
         });
     });

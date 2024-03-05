@@ -127,6 +127,30 @@ body{
     transform: translateY(-2px);
 }
 
+#create-button{
+    background-color: #D9D9D9;
+    border: none;
+    outline: none;
+    user-select: none;
+    border-radius: 1.5vw;
+    padding-left: 37px;
+    padding-right: 15px;
+    font-family: Inter;
+    color: #A3A3A3;
+    background-image: url('/front/icons/create.svg');
+    background-repeat: no-repeat;
+    background-size: 17px;
+    background-position: 10px;
+    height: 30px;
+    width: 90px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#create-button:hover{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
 #settings{
     margin-left: auto;
     margin-right: 50px; 
