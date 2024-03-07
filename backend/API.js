@@ -41,6 +41,8 @@ function SQL(Request){
     });
 };
 
+var CurrentLogID = -1;
+
 // http://localhost:25565/auth/login/${password}/${user}
 app.get('/auth/login/:password/:user', async (req, res) => {
     const username = req.params.user;
@@ -51,12 +53,9 @@ app.get('/auth/login/:password/:user', async (req, res) => {
 
     try {
         result = await SQL(`SELECT ID_User FROM utilisateur WHERE Nom_user = '${username}' AND password = '${password}'`);
-    
-
         userID = result[0].ID_User;
-
+        CurrentLogID = userID;
     } catch (error) {
-
         res.status(500).json({ success: false, error: "Une erreur s'est produite lors de la récupération des données utilisateur." });
     }
 
@@ -80,16 +79,31 @@ app.get('/auth/login/:password/:user', async (req, res) => {
 });
 
 // http://localhost:25565/account-create-pilote/confirm/${username}/${password}/${name}/${surname}/${center}/${promotion}
-app.get('/account-create-pilote/confirm/:username/:password/:name/:surname/:center/:promotion', (req, res) => {
+app.get('/account-create-pilote/confirm/:username/:password/:name/:surname/:center/:promotion', async (req, res) => {
 
-    const username = req.params.username
-    const password = req.params.password;
-    const name = req.params.name;
-    const surname = req.params.surname;
-    const center = req.params.center;
-    const promotion = req.params.promotion;
+    var username = req.params.username
+    var password = req.params.password;
+    var name = req.params.name;
+    var surname = req.params.surname;
+    var center = req.params.center;
+    var promotion = req.params.promotion;
 
-    console.log({username , password , name , surname , center , promotion})
+   username = String(username)
+   password = String(password)
+   name = String(name)
+   surname = String(surname)
+   center = String(center)
+   promotion = String(promotion)
+   
+
+    result = await SQL('SELECT COUNT(*) AS Nombre_Lignes FROM utilisateur;');
+    IdNumber = result[0].Nombre_Lignes;
+
+    SQL(`INSERT INTO Utilisateur (ID_User, Nom_User, Prenom_User, Password, Login) VALUES ('${IdNumber + 1}','${surname}','${name}','${password}','${username}')`)
+    SQL(`INSERT INTO pilote (ID_Pilote, ID_Admin) VALUES ('${IdNumber}', '${CurrentLogID}');`)
+
+    result = await SQL('SELECT COUNT(*) AS Nombre_Lignes FROM utilisateur;');
+    Centre = result[0].Nombre_Lignes + 1;
 
 
     res.send('1');
