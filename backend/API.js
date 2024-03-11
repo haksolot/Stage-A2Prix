@@ -41,6 +41,7 @@ function SQL(Request){
     });
 };
 
+
 var CurrentLogID = 1;
 
 // http://localhost:25565/auth/login/${password}/${user}
@@ -53,9 +54,11 @@ app.get('/auth/login/:password/:user', async (req, res) => {
 
     try {
         result = await SQL(`SELECT ID_User FROM utilisateur WHERE Nom_user = '${username}' AND password = '${password}'`);
+      
         userID = result[0].ID_User;
         CurrentLogID = userID;
     } catch (error) {
+
         res.status(500).json({ success: false, error: "Une erreur s'est produite lors de la récupération des données utilisateur." });
     }
 
@@ -79,6 +82,7 @@ app.get('/auth/login/:password/:user', async (req, res) => {
 });
 
 // http://localhost:25565/account-create-pilote/confirm/${username}/${password}/${name}/${surname}/${center}/${promotion}
+
 app.get('/account-create-pilote/confirm/:username/:password/:name/:surname/:center/:promotion', async (req, res) => {
 
     var username = req.params.username
