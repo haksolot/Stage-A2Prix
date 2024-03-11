@@ -8,17 +8,10 @@ function sendData(){
             'Content-Type': 'application/json'
         }
     })
-    .then(response => response.text())
+    .then(response => response.json())
     .then(data => {
-        console.log(data)
-        if(data == "Student"){
-            window.location.href = 'dashboard.html';
-        }
-        if(data == "Pilote"){
-            window.location.href = 'dashboard-admin.html';
-        }
-        if(data == "Admin"){
-            window.location.href = 'dashboard-admin.html';
-        }
+        console.log(data.token);
+       localStorage.setItem( "token" , data.token );
+       window.location.href = data.page;
     })
 };
