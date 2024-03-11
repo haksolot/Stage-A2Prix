@@ -34,14 +34,14 @@
 .person-icon{
     width: 25px;
     height: 25px;
-    background-image: url('/front/icons/person.svg');
+    background-image: url('/frontend/icons/person.svg');
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: 5px 0px;
 }
 
 #person-center{
-    background-image: url('/front/icons/center.svg');
+    background-image: url('/frontend/icons/center.svg');
     background-repeat: no-repeat;
     background-size: 22px;
     background-position: 20px;
@@ -49,7 +49,7 @@
 }
 
 #person-promotion{
-    background-image: url('/front/icons/promotion.svg');
+    background-image: url('/frontend/icons/promotion.svg');
     background-repeat: no-repeat;
     background-size: 22px;
     background-position: 20px;

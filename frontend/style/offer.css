@@ -129,12 +129,12 @@
 }
 
 .offer-starF{
-    background-image: url('/front/icons/star1.svg');
+    background-image: url('/frontend/icons/star1.svg');
     
 }
 
 .offer-starE{
-    background-image: url('/front/icons/star2.svg');
+    background-image: url('/frontend/icons/star2.svg');
 }
 
 .offer-carac{
@@ -152,7 +152,7 @@
 }
 
 .offer-sector{
-    background-image: url('/front/icons/sector.svg');
+    background-image: url('/frontend/icons/sector.svg');
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: 5px 0px;
@@ -160,7 +160,7 @@
 }
 
 .offer-money{
-    background-image: url('/front/icons/money.svg');
+    background-image: url('/frontend/icons/money.svg');
     background-repeat: no-repeat;
     background-size: 10px;
     background-position: 10px 0px;
@@ -168,7 +168,7 @@
 }
 
 .offer-people{
-    background-image: url('/front/icons/people.svg');
+    background-image: url('/frontend/icons/people.svg');
     background-repeat: no-repeat;
     background-size: 23px;
     background-position: 10px 0px;
@@ -185,7 +185,7 @@
 }
 
 .offer-like{
-    background-image: url('/front/icons/like2.svg');
+    background-image: url('/frontend/icons/like2.svg');
     background-repeat: no-repeat;
     background-size: 23px;
     width: 23px;
@@ -200,7 +200,7 @@
 }
 
 .offer-like-red{
-    background-image: url('/front/icons/like1.svg');
+    background-image: url('/frontend/icons/like1.svg');
     background-repeat: no-repeat;
     background-size: 23px;
     width: 23px;
@@ -215,7 +215,7 @@
 }
 
 .offer-time{
-    background-image: url('/front/icons/time.svg');
+    background-image: url('/frontend/icons/time.svg');
     background-repeat: no-repeat;
     background-size: 23px;
     width: 23px;
@@ -292,7 +292,7 @@
     border-radius: 10000vw;
     outline: none;
     user-select: none;
-    background-image: url('/front/icons/pen.svg');
+    background-image: url('/frontend/icons/pen.svg');
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: 52% 52%;
@@ -311,7 +311,7 @@
     border-radius: 10000vw;
     outline: none;
     user-select: none;
-    background-image: url('/front/icons/check.svg');
+    background-image: url('/frontend/icons/check.svg');
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: 52% 52%;
@@ -333,7 +333,7 @@
     border-radius: 10000vw;
     outline: none;
     user-select: none;
-    background-image: url('/front/icons/eye.svg');
+    background-image: url('/frontend/icons/eye.svg');
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: 50% 50%;
@@ -353,7 +353,7 @@
     border-radius: 10000vw;
     outline: none;
     user-select: none;
-    background-image: url('/front/icons/delete-action.svg');
+    background-image: url('/frontend/icons/delete-action.svg');
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: 50% 50%;
