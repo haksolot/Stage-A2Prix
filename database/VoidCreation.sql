@@ -83,6 +83,7 @@ CREATE TABLE Entreprise(
    Type_Ent VARCHAR(50) NOT NULL,
    Nb_postulant INT NOT NULL,
    Evaluation DECIMAL(2,1) NOT NULL,
+   Description VARCHAR(512) NOT NULL,
    ID_Pilote INT NULL,
    ID_City INT NOT NULL,
    ID_Admin INT NULL,
