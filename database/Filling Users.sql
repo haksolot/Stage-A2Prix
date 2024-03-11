@@ -1,0 +1,22 @@
+INSERT INTO Utilisateur (Nom_user, Prenom_user, Password, Login)
+VALUES
+('Dupont', 'Jean', 'Mdp123', 'jean.dupont'),
+('Martin', 'Sophie', 'Pass456', 'sophie.martin'),
+('Lefebvre', 'Pierre', 'Secret789', 'pierre.lefebvre'),
+('Durand', 'Marie', 'Secure321', 'marie.durand'),
+('Petit', 'Paul', 'Safe987', 'paul.petit'),
+('Moreau', 'Julie', 'Password123', 'julie.moreau'),
+('Simon', 'Thomas', 'SecurePassword', 'thomas.simon'),
+('Laurent', 'Catherine', 'SecretPass', 'catherine.laurent'),
+('Leroy', 'Nicolas', 'SafePassword', 'nicolas.leroy'),
+('Roux', 'Isabelle', 'PasswordSafe', 'isabelle.roux'),
+('Fournier', 'David', 'SecurePass123', 'david.fournier'),
+('Garcia', 'Christine', 'SafePass456', 'christine.garcia'),
+('Michel', 'François', 'Password1234', 'francois.michel'),
+('Lefevre', 'Sandrine', 'SecurePass1234', 'sandrine.lefevre'),
+('Gauthier', 'Philippe', 'SafePassword123', 'philippe.gauthier'),
+('Lefort', 'Nathalie', 'PassSecure123', 'nathalie.lefort'),
+('André', 'Sylvie', 'Secure123Password', 'sylvie.andre'),
+('Marchand', 'Éric', 'PasswordSecure123', 'eric.marchand'),
+('Dumont', 'Valérie', 'Secure123Password', 'valerie.dumont'),
+('Meunier', 'Patrick', 'Safe123Password', 'patrick.meunier');
