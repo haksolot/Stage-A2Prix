@@ -1,21 +1,3 @@
-<!DOCTYPE html>
-<script src="script/authConfirm.js"></script>
-<head>
-    <title>Stage A2Prix</title>
-    <link rel="stylesheet" href="style/auth.css">
-</head>
-<body>
-    <div id="container">
-        <h1>Authentification</h1>
-        <input type="text" id="account-id" placeholder="Nom d'utilisateur">
-        <div class="row">
-            <input id="password" placeholder="Mot de passe">
-            <button id="confirmation", onclick="sendData()"></button>
-        </div>
-    </div>
-</body>
-
-<script>
 function sendData(){
     var password = document.getElementById('password').value
     var user = document.getElementById('account-id').value
@@ -40,7 +22,3 @@ function sendData(){
         }
     })
 };
-
-
-</script>
-

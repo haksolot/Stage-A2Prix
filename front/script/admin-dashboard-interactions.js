@@ -1,4 +1,7 @@
 
+function GoToCreatePilot(){
+    window.location.href = 'account-create-pilote.html';
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     var createButton = document.getElementById('create-button');
@@ -25,3 +28,5 @@ document.addEventListener('click', function(event) {
 
     } 
 });
+
+
