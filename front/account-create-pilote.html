@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<script src="script/createPiloteConfirm.js"></script>
 <head>
     <title>Stage-A2Prix</title>
     <link rel="stylesheet" href="style/account-creation.css">
@@ -19,34 +20,3 @@
         </div>
     </div>
 </body>
-
-<script>
-    function sendData(){
-        
-        var username = document.getElementById('account-id').value
-        var password = document.getElementById('password').value
-        var name = document.getElementById('name').value
-        var surname = document.getElementById('surname').value
-        var center = document.getElementById('center').value
-        var promotion = document.getElementById('promotion').value
-
-        if (username != "" && password != "" && name != "" && surname != "" && center != "" && promotion != "") {
-            console.log("Data sent !")
-            fetch(`http://localhost:25565/account-create-pilote/confirm/${username}/${password}/${name}/${surname}/${center}/${promotion}`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-            })
-            .then(response => response.text())
-            .then(data => {
-                console.log("Response received:", data);
-            })
-
-        }else{
-
-            console.log("Not enough data")
-
-        }
-    };
-</script>
