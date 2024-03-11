@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Nunito:wght@500&family=Silkscreen&display=swap');
 
-body{
+body {
     background-color: #FFFFFF;
 }
 
-h1{
+h1 {
     color: #A3A3A3;
     font-family: Inter;
 }
 
-input{
+input {
     background-color: #D9D9D9;
     border: none;
     outline: none;
@@ -22,15 +22,15 @@ input{
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-input:hover{
+input:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
 }
 
-#container{
+#container {
     padding-top: 140px;
     padding-bottom: 140px;
-    position:absolute;
+    position: absolute;
     transform: translate(-50%, 0%);
     top: 0%;
     left: 50%;
@@ -40,36 +40,36 @@ input:hover{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap:24px;
+    gap: 24px;
 }
 
-#fields{
+#fields {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap:24px;
+    gap: 24px;
 }
 
-#name{
+#name {
     display: flex;
     flex-direction: row;
-    gap:24px;
-    flex:1;
+    gap: 24px;
+    flex: 1;
     justify-content: center;
     align-items: center;
 }
 
-#sector{
+#sector {
     display: flex;
     flex-direction: row;
-    gap:24px;
-    flex:1;
+    gap: 24px;
+    flex: 1;
     justify-content: center;
     align-items: center;
 }
 
-#add-sector{
+#add-sector {
     width: 30px;
     height: 30px;
     background-color: #D9D9D9;
@@ -84,30 +84,30 @@ input:hover{
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-#add-sector:hover{
+#add-sector:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
 }
 
-#location{
+#location {
     display: flex;
     flex-direction: row;
-    gap:24px;
-    flex:1;
+    gap: 24px;
+    flex: 1;
     justify-content: center;
     align-items: center;
 }
 
-#description{
+#description {
     display: flex;
     flex-direction: row;
-    gap:24px;
-    flex:1;
+    gap: 24px;
+    flex: 1;
     justify-content: center;
     align-items: center;
 }
 
-#buttons{
+#buttons {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -115,7 +115,7 @@ input:hover{
     gap: 24px;
 }
 
-#create{
+#create {
     border: 3px solid #99FF90;
     border-radius: 20px;
     background-color: transparent;
@@ -128,14 +128,14 @@ input:hover{
     transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-#create:hover{
+#create:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
     background-color: #99FF90;
     color: #FFFFFF;
 }
 
-#edit{
+#edit {
     border: 3px solid #99FF90;
     border-radius: 20px;
     background-color: transparent;
@@ -144,18 +144,18 @@ input:hover{
     font-size: medium;
     font-weight: 600;
     height: 50px;
-    width: 100px; 
+    width: 100px;
     transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-#edit:hover{
+#edit:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
     background-color: #99FF90;
     color: #FFFFFF;
 }
 
-#delete{
+#delete {
     width: 50px;
     height: 50px;
     border: 3px solid #FF9090;
@@ -168,53 +168,53 @@ input:hover{
     transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
 }
 
-#delete:hover{
+#delete:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
     background-color: #FF9090;
 }
 
-#company-name{
+#company-name {
     display: flex;
     flex-direction: row;
-    gap:24px;
-    flex:1;
+    gap: 24px;
+    flex: 1;
     justify-content: center;
     align-items: center;
 }
 
-#post{
+#post {
     display: flex;
     flex-direction: row;
-    gap:24px;
-    flex:1;
+    gap: 24px;
+    flex: 1;
     justify-content: center;
     align-items: center;
 }
 
-#adress{
+#adress {
     display: flex;
     flex-direction: row;
-    gap:24px;
-    flex:1;
+    gap: 24px;
+    flex: 1;
     justify-content: center;
     align-items: center;
 }
 
-#money{
+#money {
     display: flex;
     flex-direction: row;
-    gap:24px;
-    flex:1;
+    gap: 24px;
+    flex: 1;
     justify-content: center;
     align-items: center;
 }
 
-#duration{
+#duration {
     display: flex;
     flex-direction: row;
-    gap:24px;
-    flex:1;
+    gap: 24px;
+    flex: 1;
     justify-content: center;
     align-items: center;
 }

@@ -1,0 +1,27 @@
+# Ignore les modules Node.js
+node_modules/
+
+# Ignore les fichiers de logs
+logs/
+*.log
+npm-debug.log*
+
+# Ignore les fichiers temporaires
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Ignore les fichiers de configuration
+.DS_Store
+.env
+.env.local
+.env.*.local
+
+# Ignore les fichiers générés par le système
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
