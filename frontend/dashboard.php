@@ -1,9 +1,20 @@
+<?php
+    function linkResource($rel, $href) {
+        echo "<link rel='{$rel}' href='{$href}'>";
+    }
+    function linkScript($src) {
+        echo "<script src='{$src}'></script>";
+    }
+?>
 <!DOCTYPE html>
 <head>
     <title>Stage-A2Prix</title>
-    <link rel="stylesheet" href="style/dashboard.css">
-    <link rel="stylesheet" href="style/offer.css">
-    <script src="script/offer-interactions.js"></script>
+    <!-- <link rel="stylesheet" href="style/dashboard.css">
+    <link rel="stylesheet" href="style/offer.css"> -->
+    <?php linkResource("stylesheet", "/frontend/style/dashboard.css"); ?>
+    <?php linkResource("stylesheet", "/frontend/style/offer.css"); ?>
+    <?php linkScript("frontend/script/offer-interactions.js"); ?>
+    <!-- <script src="script/offer-interactions.js"></script> -->
 </head>
 <body>
     <div id="bar">

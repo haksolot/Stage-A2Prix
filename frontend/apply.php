@@ -1,7 +1,19 @@
+<?php
+    function linkResource($rel, $href) {
+        echo "<link rel='{$rel}' href='{$href}'>";
+    }
+    function linkScript($src) {
+        echo "<script src='{$src}'></script>";
+    }
+?>
 <!DOCTYPE html>
 <head>
     <title>Stage-A2Prix</title>
-    <link rel="stylesheet" href="style/apply.css">
+    <!-- <link rel="stylesheet" href="style/apply.css"> -->
+    <?php 
+    linkResource("stylesheet", "/frontend/style/apply.css"); 
+    // linkScript("frontend/script/createPiloteConfirm.js");
+    ?>
 </head>
 <body>
     <div id="bar">

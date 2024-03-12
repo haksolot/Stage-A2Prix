@@ -1,8 +1,19 @@
+<?php
+    function linkResource($rel, $href) {
+        echo "<link rel='{$rel}' href='{$href}'>";
+    }
+    function linkScript($src) {
+        echo "<script src='{$src}'></script>";
+    }
+?>
 <!DOCTYPE html>
-<script src="script/createPiloteConfirm.js"></script>
 <head>
     <title>Stage-A2Prix</title>
-    <link rel="stylesheet" href="style/account-creation.css">
+    <!-- <link rel="stylesheet" href="style/account-creation.css"> -->
+    <?php 
+    linkResource("stylesheet", "/frontend/style/account-creation.css"); 
+    linkScript("frontend/script/createPiloteConfirm.js");
+    ?>
 </head>
 <body>
     <div id="container">
