@@ -246,22 +246,20 @@
     transform: translateY(-2px);
 }
 
-.closed{
-    .bottom-part{
-        display: none;
-    }
-    .offer-line-vertical{
-        display: none;
-    }
+.closed .bottom-part {
+    display: none;
 }
 
-.opened{
-    .bottom-part{
-        display: flex;
-    }
-    .offer-line-vertical{
-        display: block;
-    }
+.closed .offer-line-vertical {
+    display: none;
+}
+
+.opened .bottom-part {
+    display: flex;
+}
+
+.opened .offer-line-vertical {
+    display: block;
 }
 
 .offer-container{
@@ -270,10 +268,8 @@
     gap:24px;
 }
 
-.offer-container:hover{
-    .actions-container{
-        opacity: 1;
-    }
+.offer-container:hover .actions-container {
+    opacity: 1;
 }
 
 .actions-container{
