@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Vérification des données de connexion
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
@@ -10,7 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($username === "utilisateur" && $password === "motdepasse") {
         // Authentification réussie
-        session_start();
         $_SESSION['username'] = $username;
         header("Location: accueil.php"); // Rediriger vers la page d'accueil après la connexion réussie
         exit;
@@ -23,24 +23,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Page de connexion</title>
 </head>
+
 <body>
 
-<h2>Connexion</h2>
+    <h2>Connexion</h2>
 
-<form method="post" action="login.php">
-    <div>
-        <label for="username">Nom d'utilisateur :</label>
-        <input type="text" id="username" name="username" required>
-    </div>
-    <div>
-        <label for="password">Mot de passe :</label>
-        <input type="password" id="password" name="password" required>
-    </div>
-    <button type="submit">Se connecter</button>
-</form>
+    <form method="post" action="login.php">
+        <div>
+            <label for="username">Nom d'utilisateur :</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Se connecter</button>
+    </form>
 
 </body>
+
 </html>

@@ -11,7 +11,8 @@ if (isset($_POST['username'])){
   $result = mysqli_query($conn,$query) or die(mysql_error());
   $rows = mysqli_num_rows($result);
   if($rows==1){
-      $_SESSION['username'] = $username;
+      $_SESSION['logged_in'] = true;
+      echo('coucou');
       header("Location: /dashboard");
   }else{
     echo("Le nom d'utilisateur ou le mot de passe est incorrect.");
@@ -22,6 +23,7 @@ function linkResource($rel, $href)
 {
     echo "<link rel='{$rel}' href='{$href}'>";
 }
+// session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="fr">

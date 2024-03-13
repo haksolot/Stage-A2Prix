@@ -1,5 +1,3 @@
-<!-- <?php phpinfo(); ?> -->
-
 <?php
 // Récupère l'URL de la requête
 $request_uri = $_SERVER['REQUEST_URI'];
@@ -13,6 +11,10 @@ switch ($request_uri) {
     case '/login':
         // Route pour la page de connexion
         include 'frontend/auth.php';
+        break;
+    case '/logout':
+        // Route pour la page de déconnexion
+        include 'frontend/logout.php';
         break;
     case '/dashboard':
         // Route pour la page de connexion
