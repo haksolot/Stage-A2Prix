@@ -12,7 +12,6 @@
     <!-- <link rel="stylesheet" href="style/account-creation.css"> -->
     <?php 
     linkResource("stylesheet", "/frontend/style/account-creation.css"); 
-    linkScript("frontend/script/createPiloteConfirm.js");
     ?>
 </head>
 <body>

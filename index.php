@@ -1,3 +1,5 @@
+<!-- <?php phpinfo(); ?> -->
+
 <?php
 // Récupère l'URL de la requête
 $request_uri = $_SERVER['REQUEST_URI'];
