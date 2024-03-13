@@ -2,7 +2,7 @@ CREATE TABLE Utilisateur(
    ID_User INT auto_increment,
    Nom_user VARCHAR(50) NOT NULL,
    Prenom_user VARCHAR(50) NOT NULL,
-   Password VARCHAR(512) NOT NULL,
+   Password VARCHAR(128) NOT NULL,
    Login VARCHAR(50) NOT NULL,
    PRIMARY KEY(ID_User)
 );
