@@ -1,49 +1,32 @@
 <?php
-session_start();
-// Vérification des données de connexion
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    // Connexion à la base de données
+    $mysqli = new mysqli("localhost", "root", "", "a2prix");
 
-    // Vérifiez ici si les informations de connexion sont correctes
-    // Par exemple, vous pouvez vérifier avec une base de données ou des données enregistrées
-    // Ceci est juste un exemple de vérification basique
-
-    if ($username === "utilisateur" && $password === "motdepasse") {
-        // Authentification réussie
-        $_SESSION['username'] = $username;
-        header("Location: accueil.php"); // Rediriger vers la page d'accueil après la connexion réussie
-        exit;
-    } else {
-        // Identifiants incorrects
-        echo "Identifiants incorrects. Veuillez réessayer.";
+    // Vérifier la connexion
+    if ($mysqli->connect_error) {
+        die("Erreur de connexion : " . $mysqli->connect_error);
     }
-}
+
+    // Exécuter une requête SQL
+    $query = "SELECT Login FROM utilisateur WHERE Login LIKE 'jfikdlsa'";
+    $result = $mysqli->query($query);
+
+    // Vérifier si la requête a réussi
+    if ($result) {
+        // Parcourir les résultats
+        while ($row = $result->fetch_assoc()) {
+            // Utiliser les données
+            echo $row['Login'] . "<br>";
+            echo(type($row['Login']));
+        }
+        
+        // Libérer le résultat
+        $result->free();
+    } else {
+        echo "Erreur lors de l'exécution de la requête : " . $mysqli->error;
+    }
+
+    // Fermer la connexion
+    $mysqli->close();
+
 ?>
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Page de connexion</title>
-</head>
-
-<body>
-
-    <h2>Connexion</h2>
-
-    <form method="post" action="login.php">
-        <div>
-            <label for="username">Nom d'utilisateur :</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-        <div>
-            <label for="password">Mot de passe :</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <button type="submit">Se connecter</button>
-    </form>
-
-</body>
-
-</html>
