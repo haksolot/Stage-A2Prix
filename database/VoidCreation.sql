@@ -102,7 +102,6 @@ CREATE TABLE Stage(
    Titre VARCHAR(50) NOT NULL,
    Description VARCHAR(255) NOT NULL,
    Durre VARCHAR(50) NOT NULL,
-   Type_Promo VARCHAR(50) NOT NULL,
    Remuneration DECIMAL(15,2) NOT NULL,
    Places INT NOT NULL,
    Nb_Postulants INT NOT NULL,
