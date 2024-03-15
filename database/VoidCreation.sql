@@ -99,7 +99,8 @@ CREATE TABLE Entreprise(
 
 CREATE TABLE Stage(
    ID_Stage INT auto_increment,
-   Compétences VARCHAR(50) NOT NULL,
+   Titre VARCHAR(50) NOT NULL,
+   Description VARCHAR(255) NOT NULL,
    Durre VARCHAR(50) NOT NULL,
    Type_Promo VARCHAR(50) NOT NULL,
    Remuneration DECIMAL(15,2) NOT NULL,
