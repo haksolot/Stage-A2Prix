@@ -1,11 +1,6 @@
 <?php
     session_start();
-    function linkResource($rel, $href) {
-        echo "<link rel='{$rel}' href='{$href}'>";
-    }
-    function linkScript($src) {
-        echo "<script src='{$src}'></script>";
-    }
+    include('./backend/links.php');
     if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         header("Location: /login");
         exit();

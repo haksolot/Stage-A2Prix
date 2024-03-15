@@ -14,7 +14,7 @@ switch ($request_uri) {
         break;
     case '/logout':
         // Route pour la page de déconnexion
-        include 'frontend/logout.php';
+        include 'backend/logout.php';
         break;
     case '/dashboard':
         // Route pour la page de connexion
