@@ -5,10 +5,7 @@
 <head>
     <title>Stage-A2Prix</title>
     <!-- <link rel="stylesheet" href="style/company.css"> -->
-    <?php 
-    linkResource("stylesheet", "/frontend/style/company.css"); 
-    // linkScript("frontend/script/createPiloteConfirm.js");
-    ?>
+    <?php linkResource("stylesheet", "/frontend/style/company.css"); ?>
 </head>
 <body>
     <div id="container">

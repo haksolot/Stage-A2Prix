@@ -24,6 +24,10 @@ switch ($request_uri) {
         // Route pour la page de connexion
         include 'frontend/dashboard-admin.php';
         break;
+    case '/pilot-dashboard':
+        // Route pour la page de connexion
+        include 'frontend/dashboard-pilote.php';
+        break;
     case '/create/student':
         // Route pour la page de connexion
         include 'frontend/account-create-student.php';
