@@ -1,20 +1,13 @@
 <?php
-    session_start();
     include('./backend/links.php');
-    if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-        header("Location: /login");
-        exit();
-    }
+    include('./backend/student-firewall.php');
 ?>
 <!DOCTYPE html>
 <head>
     <title>Stage-A2Prix</title>
-    <!-- <link rel="stylesheet" href="style/dashboard.css">
-    <link rel="stylesheet" href="style/offer.css"> -->
     <?php linkResource("stylesheet", "/frontend/style/dashboard.css"); ?>
     <?php linkResource("stylesheet", "/frontend/style/offer.css"); ?>
     <?php linkScript("frontend/script/offer-interactions.js"); ?>
-    <!-- <script src="script/offer-interactions.js"></script> -->
 </head>
 <body>
     <div id="bar">

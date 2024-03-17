@@ -1,15 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "a2prix";
+    $mysqli = new mysqli("localhost", "root", "", "a2prix");
 
-// Créer une connexion
-$conn = new mysqli($servername, $username, $password, $database);
-
-// Vérifier la connexion
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-// echo "Connected successfully";
+        // Vérifier la connexion
+        if ($mysqli->connect_error) {
+            die("Erreur de connexion : " . $mysqli->connect_error);
+        }
 ?>

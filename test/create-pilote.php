@@ -24,7 +24,7 @@ $checkLoginExistence = "SELECT Login
     } else {
         echo("Noice");
         $insertUserQuery = "INSERT INTO Utilisateur (Nom_user, Prenom_user, Password, Login) 
-                    VALUES ('$name', '$surname', '$password', '$username')";
+                    VALUES ('$name', '$surname', '".hash('sha512', $password)."', '$username')";
 
         if ($mysqli->query($insertUserQuery) === TRUE) {
             echo "Utilisateur ajouté avec succès. ";

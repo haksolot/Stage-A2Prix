@@ -4,10 +4,7 @@
 <!DOCTYPE html>
 <head>
     <title>Stage-A2Prix</title>
-    <!-- <link rel="stylesheet" href="style/account-creation.css"> -->
-    <?php 
-    linkResource("stylesheet", "/frontend/style/account-creation.css"); 
-    ?>
+    <?php linkResource("stylesheet", "/frontend/style/account-creation.css"); ?>
 </head>
 <body>
     <div id="container">

@@ -1,17 +1,12 @@
 <?php
-    session_start();
     include('./backend/links.php');
-    if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-        header("Location: /login");
-        exit();
-    }
+    include('./backend/pilot-firewall.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <title>Stage-A2Prix</title>
     <?php
-    // Inclusion des fichiers CSS
     linkResource("stylesheet", "frontend/style/dashboard.css");
     linkResource("stylesheet", "frontend/style/offer.css");
     linkScript("frontend/script/offer-interactions.js");

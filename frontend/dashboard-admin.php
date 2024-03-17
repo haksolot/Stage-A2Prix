@@ -11,7 +11,6 @@
 <head>
     <title>Stage-A2Prix</title>
     <?php
-    // Inclusion des fichiers CSS
     linkResource("stylesheet", "frontend/style/dashboard.css");
     linkResource("stylesheet", "frontend/style/offer.css");
     linkScript("frontend/script/offer-interactions.js");
