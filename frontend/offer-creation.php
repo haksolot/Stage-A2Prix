@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="container">
-        <form id="fields">
+        <form id="fields" action="" method="post">
             <div id="company-name">
                 <h1>Nom de l'entreprise</h1>
                 <input name="company-name" id="company-name-input" placeholder="nom de l'entreprise..">
@@ -38,6 +38,10 @@
             <div id="duration">
                 <h1>Durée</h1>
                 <input name="duration" id="duration-input" placeholder="Durée du poste..">
+            </div>
+            <div id="places">
+                <h1>Places</h1>
+                <input name="places" id="places-input" placeholder="Places à pourvoir..">
             </div>
             <div id="buttons">
                 <button id="create">Créer</button>

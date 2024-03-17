@@ -1,7 +1,7 @@
 <?php
     require('./backend/database/db.php');
 
-    if (isset($_REQUEST['company-name'], $_REQUEST['title'], $_REQUEST['adress'], $_REQUEST['description'], $_REQUEST['sector'], $_REQUEST['money'], $_REQUEST['duration'])){
+    if (isset($_REQUEST['company-name'], $_REQUEST['title'], $_REQUEST['adress'], $_REQUEST['description'], $_REQUEST['sector'], $_REQUEST['money'], $_REQUEST['duration'], $_REQUEST['places'])){
         // récupérer le nom d'utilisateur et supprimer les antislashes ajoutés par le formulaire
         $nom_entreprise = mysqli_real_escape_string($mysqli, stripslashes($_REQUEST['company-name']));
         $poste = mysqli_real_escape_string($mysqli, stripslashes($_REQUEST['title']));
@@ -10,6 +10,7 @@
         $secteur = mysqli_real_escape_string($mysqli, stripslashes($_REQUEST['sector']));
         $remuneration = mysqli_real_escape_string($mysqli, stripslashes($_REQUEST['money']));
         $duree = mysqli_real_escape_string($mysqli, stripslashes($_REQUEST['duration']));
+        $places = mysqli_real_escape_string($mysqli, stripslashes($_REQUEST['places']));
 
         $ville = explode(',', $adresse)[0];
 

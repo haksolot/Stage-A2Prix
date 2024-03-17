@@ -17,6 +17,7 @@ $juridique = "SARS";
 $capital = "Paris";
 $hebergeur = "OVH";
 
+
 $checkCompanyExistence = "SELECT Nom_Ent 
                         FROM entreprise 
                         WHERE Nom_Ent = '$nom_entreprise'";
