@@ -6,6 +6,7 @@
         $username = mysqli_real_escape_string($mysqli, stripslashes($_REQUEST['username']));
         $password = mysqli_real_escape_string($mysqli, stripslashes($_REQUEST['password']));
         $role = NULL;
+        $id = NULL;
 
         $query = "SELECT * FROM Utilisateur WHERE Login='$username' and Password='".hash('sha512', $password)."'";
         $result = mysqli_query($mysqli,$query) or die(mysql_error());
@@ -49,6 +50,7 @@
             if($role)
             {
               $_SESSION['role'] = $role;
+              $_SESSION['id'] = $id;
               if ($role == 'student')
               {
                 header("Location: /dashboard");

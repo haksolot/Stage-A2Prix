@@ -1,6 +1,6 @@
 <?php
-    include('./backend/links.php');
-    include('./backend/student-firewall.php');
+    include('./backend/tools/links.php');
+    include('./backend/firewall/student-firewall.php');
 ?>
 <!DOCTYPE html>
 <head>

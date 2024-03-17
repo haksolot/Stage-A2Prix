@@ -1,6 +1,6 @@
 <?php
+    include('./backend/tools/links.php');
     include('./backend/auth.php');
-    include('./backend/links.php');
 ?>
 
 <!DOCTYPE html>

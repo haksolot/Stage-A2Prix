@@ -1,6 +1,6 @@
 <?php
-    include('./backend/links.php');
-    include('./backend/pilot-firewall.php');
+    include('./backend/tools/links.php');
+    include('./backend/firewall/pilot-firewall.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
