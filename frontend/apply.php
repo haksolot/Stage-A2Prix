@@ -4,11 +4,7 @@
 <!DOCTYPE html>
 <head>
     <title>Stage-A2Prix</title>
-    <!-- <link rel="stylesheet" href="style/apply.css"> -->
-    <?php 
-    linkResource("stylesheet", "/frontend/style/apply.css"); 
-    // linkScript("frontend/script/createPiloteConfirm.js");
-    ?>
+    <?php linkResource("stylesheet", "/frontend/style/apply.css"); ?>
 </head>
 <body>
     <div id="bar">

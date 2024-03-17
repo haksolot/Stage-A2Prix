@@ -18,38 +18,7 @@
         <div class="row">
             <input type="text" id="center" placeholder="Centre">
             <input type="text" id="promotion" placeholder="Promotion assigné">
-            <button id="confirmation", onclick="sendData()"></button>
+            <button id="confirmation"></button>
         </div>
     </div>
 </body>
-
-<script>
-    function sendData(){
-        
-        var username = document.getElementById('account-id').value
-        var password = document.getElementById('password').value
-        var name = document.getElementById('name').value
-        var surname = document.getElementById('surname').value
-        var center = document.getElementById('center').value
-        var promotion = document.getElementById('promotion').value
-
-        if (username != "" && password != "" && name != "" && surname != "" && center != "" && promotion != "") {
-            console.log("Data sent !")
-            fetch(`http://localhost:25565/account-create-pilote/confirm/${username}/${password}/${name}/${surname}/${center}/${promotion}`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-            })
-            .then(response => response.text())
-            .then(data => {
-                console.log("Response received:", data);
-            })
-
-        }else{
-
-            console.log("Not enough data")
-
-        }
-    };
-</script>

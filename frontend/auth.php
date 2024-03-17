@@ -8,7 +8,6 @@
 
 <head>
     <title>Stage A2Prix</title>
-    <!-- <link rel="stylesheet" href="style/auth.css"> -->
     <?php linkResource("stylesheet", '/frontend/style/auth.css'); ?>
 </head>
 
@@ -19,7 +18,7 @@
         <input type="text" id="account-id" name="username" placeholder="Nom d'utilisateur">
         <div class="row">
             <input id="password" name="password" placeholder="Mot de passe">
-            <button id="confirmation" onclick="sendData()"></button>
+            <button id="confirmation"></button>
         </div>
 </form>
 </body>

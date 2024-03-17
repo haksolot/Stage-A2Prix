@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <head>
     <title>Stage-A2Prix</title>
-    <!-- <link rel="stylesheet" href="style/company.css"> -->
     <?php linkResource("stylesheet", "/frontend/style/company.css"); ?>
 </head>
 <body>
