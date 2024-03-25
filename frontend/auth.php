@@ -1,6 +1,6 @@
 <?php
-    include('./backend/tools/links.php');
-    include('./backend/auth.php');
+include './backend/tools/links.php';
+include './backend/auth.php';
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
 
 <head>
     <title>Stage A2Prix</title>
-    <?php linkResource("stylesheet", '/frontend/style/auth.css'); ?>
+    <?php linkResource("stylesheet", '/frontend/style/auth.css');?>
 </head>
 
 <body>

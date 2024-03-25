@@ -1,10 +1,10 @@
 <?php
 
-include('class.php');
+include('other.php');
 
-$user = new User;
+$student = new Student;
 
-$user->setName('lol');
-$user->setLogin('mdr');
+$student->setName('lol');
+$student->setLogin('mdr');
 
-print_r($user->getUser());
+print_r($student->test());
