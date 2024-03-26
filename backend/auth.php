@@ -47,6 +47,15 @@ if (isset($_POST['username'])) {
             if ($stmt->rowCount() > 0) {
                 $role = "student";
             }
+
+            $checkAdmin = "SELECT ID_Admin FROM admin WHERE ID_Admin = :id";
+            $stmt = $db->prepare($checkAdmin);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            if ($stmt->rowCount() > 0) {
+                $role = "admin";
+            }
         } else {
             echo ('Utilisateur n\'existe pas');
         }

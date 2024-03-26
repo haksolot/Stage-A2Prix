@@ -11,6 +11,9 @@
     else if($pilot == true) {
         header("Location: /pilot-dashboard");
     }
+    else if($admin == true) {
+        header("Location : /dashboard-admin.php");
+    }
     else {
         header("Location: /login");
     }

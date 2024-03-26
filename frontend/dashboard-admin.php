@@ -1,10 +1,6 @@
 <?php
-    session_start();
     include('./backend/tools/links.php');
-    if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-        header("Location: /login");
-        exit();
-    }
+    include('./backend/firewall/admin-firewall.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
