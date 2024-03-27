@@ -1,6 +1,14 @@
 
 function GoToCreatePilot(){
-    window.location.href = 'account-create-pilote.html';
+    window.location.href = 'account-create-pilote.php';
+}
+
+function GoToCreateStudent(){
+    window.location.href = 'account-create-student.php';
+}
+
+function GoToCreateOffer(){
+    window.location;href = 'offer-creation.php';
 }
 
 document.addEventListener('DOMContentLoaded', function() {

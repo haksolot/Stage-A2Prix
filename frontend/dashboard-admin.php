@@ -15,9 +15,9 @@
 </head>
 <body>
     <div id="create-choice">
-        <button id="create-student" class="choice">Étudiant</button>
+        <button id="create-student" class="choice" onclick ="GoToCreateStudent()">Étudiant</button>
         <button id="create-pilot" class="choice" onclick ="GoToCreatePilot()">Pilote</button>
-        <button id="create-offer" class="choice">Offre</button>
+        <button id="create-offer" class="choice" onclick ="GoToCreateOffer()">Offre</button>
     </div>  
     <div id="to-blur">
         <div id="bar">
