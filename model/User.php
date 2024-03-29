@@ -13,7 +13,7 @@ class User
         $this->db = $this->Database->connect();
     }
 
-    public $name, $surname, $login, $id;
+    public $name, $surname, $login, $id, $role;
     private $password;
 
     public function setName($sName)
@@ -41,6 +41,11 @@ class User
         $this->password = $sPassword;
     }
 
+    public function setRole($sRole)
+    {
+        $this->role = $sRole;
+    }
+
     public function getName()
     {
         return $this->name;
@@ -65,6 +70,12 @@ class User
     {
         return $this->password;
     }
+
+    public function getRole()
+    {
+        return $this->role;
+    }
+
 
     public function setUser($name, $surname, $login, $id, $password)
     {
@@ -123,4 +134,6 @@ class User
             echo ("L'utilisateur n'a pas put être crée");
         }
     }
+
+
 }

@@ -5,6 +5,11 @@ class Pilot extends User
 {
     public $admin, $promotion, $center, $formation, $center_id, $promotion_id;
 
+    public function __construct()
+    {
+        $this->role = 'pilot';
+    }
+
     public function setAdmin($a)
     {
         $this->admin = $a;
@@ -107,5 +112,50 @@ class Pilot extends User
             echo ("Le centre spécifié n'existe pas");
         }
     }
+
+    public function deletePilot()
+        {
+        // Supprimer pilote de la table pilote
+        $deletePilotQuery = "DELETE FROM Pilote WHERE ID_Pilote = :id_utilisateur";
+        $stmt = $this->db->prepare($deletePiloteQuery);
+        $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
+        $stmt->execute();
+        
+        // Puis de Utilisateur correspondant au Pilote
+        $deleteUserQuery = "DELETE FROM Utilisateur WHERE ID_User = :id_utilisateur";
+        $stmt = $this->db->prepare($deleteUserQuery);
+        $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Ensuite, suppression des tables dépandantes du pilote
+        $deleteEvaluationQuery = "DELETE FROM EVP WHERE ID_Pilote = :id_utilisateur";
+        $stmt = $this->db->prepare($deleteEvaluationQuery);
+        $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $deletePromotionQuery = "DELETE FROM Promotion WHERE ID_Pilote = :id_utilisateur";
+        $stmt = $this->db->prepare($deleteEvaluationQuery);
+        $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        //Puis on supprime là ou l'ID_Pilote est utilisée (entreprise et étudiant)
+
+        $updateEntrepriseQuery = "UPDATE Entreprise SET ID_Pilote = NULL WHERE ID_Pilote = :id_utilisateur";
+        $stmt = $this->db->prepare($deleteEvaluationQuery);
+        $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $updateStudentQuery = "UPDATE Étudiant SET ID_Pilote = NULL WHERE ID_Pilote = :id_utilisateur";
+        $stmt = $this->db->prepare($deleteEvaluationQuery);
+        $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Vérifier si la suppression a réussi
+        if ($stmt->rowCount() > 0) {
+            return true; // L'étudiant a été supprimé avec succès
+        } else {
+        return false; // Échec de la suppression de l'étudiant
+            }
+        }
 
 }
