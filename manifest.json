@@ -1,0 +1,17 @@
+{
+    "name": "Stage A2 Prix",
+    "short_name": "A2prix",
+    "description": "Ceci est un test, (merci de le changer)",
+    "start_url": "/index.php",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4CAF50",
+    "Orientation": "Portrait",
+    "icons": [
+        {
+            "src": "/frontend/icons/A2Prix_logo_500x500.png",
+            "sizes": "500x500",
+            "type": "image/png"
+          }
+    ]
+}

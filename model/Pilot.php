@@ -140,12 +140,25 @@ class Pilot extends User
 
         //Puis on supprime là ou l'ID_Pilote est utilisée (entreprise et étudiant)
 
-        $updateEntrepriseQuery = "UPDATE Entreprise SET ID_Pilote = NULL WHERE ID_Pilote = :id_utilisateur";
+        /*
+        // on récupère l'id admin du pilote
+        $id_admin = $this->getAdmin();
+
+        //au cas ou il y est un problème je laisse le fetch ici
+        $fetchAdminIdQuery = "SELECT ID_Admin FROM Pilote WHERE ID_pilot = :id_utilisateur";
+        $stmt = $this->db->prepare($fetchAdminIdQuery);
+        $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $id_admin = $row['ID_Admin'];
+        */
+
+        $updateEntrepriseQuery = "UPDATE Entreprise SET ID_Admin = :id_admin, ID_Pilote = NULL WHERE ID_Pilote = :id_utilisateur";
         $stmt = $this->db->prepare($deleteEvaluationQuery);
         $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
         $stmt->execute();
 
-        $updateStudentQuery = "UPDATE Étudiant SET ID_Pilote = NULL WHERE ID_Pilote = :id_utilisateur";
+        $updateStudentQuery = "UPDATE Étudiant SET ID_Admin = :id_admin, ID_Pilote = NULL WHERE ID_Pilote = :id_utilisateur";
         $stmt = $this->db->prepare($deleteEvaluationQuery);
         $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
         $stmt->execute();
