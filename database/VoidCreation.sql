@@ -117,7 +117,7 @@ CREATE TABLE Étudiant(
    Annee_Formation VARCHAR(50) NOT NULL,
    ID_Pilote INT NULL,
    ID_Admin INT NULL,
-   ID_Promotion INT NOT NULL,
+   ID_Promotion INT NULL,
    PRIMARY KEY(ID_Student),
    FOREIGN KEY(ID_Student) REFERENCES Utilisateur(ID_User),
    FOREIGN KEY(ID_Pilote) REFERENCES Pilote(ID_Pilote),
