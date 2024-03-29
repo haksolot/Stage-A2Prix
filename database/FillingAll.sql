@@ -319,7 +319,7 @@ VALUES
 ('GreenEnergy', 'Énergie renouvelable', 15, 3.7, 'GreenEnergy - où même nos panneaux solaires prennent des pauses pour admirer le ciel.', '67890123456789', 'SAS', 300000.00, 'Google Cloud', 2, 7, NULL), -- Entreprise pilotée par Pilote 2, située à Dijon, pas de gestionnaire admin pour le moment
 ('TravelWorld', 'Tourisme', 30, 4.4, 'TravelWorld - où chaque billet d avion est un ticket pour l aventure et chaque destination est un nouveau chapitre.', '78901234567890', 'SA', 400000.00, 'IBM Cloud', 4, 8, NULL); -- Entreprise pilotée par Pilote 4, située à Grenoble, pas de gestionnaire admin pour le moment
 
-INSERT INTO Stage (Compétences, Durre, Type_Promo, Remuneration, Places, Nb_Postulants, Date_Parution, Notation, ID_Entreprise)
+INSERT INTO Stage (Description, Durre, Type_Promo, Remuneration, Places, Nb_Postulants, Date_Parution, Notation, ID_Entreprise)
 VALUES
 ('Développement web', '3 mois', 'Stage ingénieur', 1500.00, 3, 0, '2024-03-10', NULL, 1), -- Stage offert par TechCorp
 ('Gestion financière', '6 mois', 'Stage de fin d''études', 2000.00, 2, 0, '2024-04-15', NULL, 2), -- Stage offert par FinancePlus
