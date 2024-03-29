@@ -3,16 +3,24 @@
 <head>
     <title>Stage A2Prix</title>
     <link rel="stylesheet" href="style/auth.css">
-    <script src="script/authConfirm.js"></script>
+    <script src = "script/auth.js"></script>
+    <!-- <script src="script/authConfirm.js"></script> -->
 </head>
 <body>
     <div id="container">
         <h1>Authentification</h1>
-        <input type="text" id="account-id" placeholder="Nom d'utilisateur">
+        <input type="text" onchange ="clearLabel2()" id="account-id" placeholder="Nom d'utilisateur">
         <div class="row">
-            <input id="password" placeholder="Mot de passe">
-            <button id="confirmation" onclick="sendData()"></button>
+            <input id="password" type ="password" onchange ="clearLabel()" placeholder="Mot de passe">
+            <button id="confirmation" onclick="validityy()"></button>
         </div>
+        <div id="labeltest">
+            <label>Votre mot de passe doit compter:</label><br>
+            <label>Une majuscule ... A, B, C, D ...</label><br>
+            <label>Un caractère spécial ... @, #, /, _ ...</label><br>
+            <label>Un chiffre ... 1, 2, 3, 4 ...</label><br>
+        </div>
+        <label id ="alert-id">User Name vide</label>
     </div>
 </body>
 </html>

@@ -5,15 +5,16 @@
     <link rel="stylesheet" href="style/dashboard.css">
     <link rel="stylesheet" href="style/offer.css">
     <script src="script/offer-interactions.js"></script>
+    <script src="script/dashboard-interactions.js"></script>
 </head>
 <body>
     <div id="bar">
-        <button id="wishlist"></button>
+        <button id="wishlist" onclick=Wishlist()></button>
         <input id="search" placeholder="Rechercher..">
         <input id="sector" placeholder="Secteur">
         <input id="location" placeholder="Localité">
         <input id="center" placeholder="Center">
-        <button id="settings"></button>
+        <button id="settings" onclick=ModifieAccount()></button>
     </div>
     <div id="scroller">
         <div id="offer-123" class="offer-background closed">

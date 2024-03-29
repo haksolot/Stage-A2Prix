@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../Stage-A2Prix-old"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Stage-A2Prix"
+	}
+}

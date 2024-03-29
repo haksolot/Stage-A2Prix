@@ -1,23 +1,34 @@
+
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <title>Stage-A2Prix</title>
     <link rel="stylesheet" href="style/account-creation.css">
+    <script src="script/createAccount.js"></script>
 </head>
+
 <body>
     <div id="container">
-        <h1>Création de compte</h1>
-        <input type="text" id="account-id" placeholder="Nom d'utilisateur">
-        <input id="password" placeholder="Mot de passe">
+        <h1>Création de compte Student</h1>
+        <input type="text" id="account-id" placeholder="* Nom d'utilisateur">
+        <input id="password" type="password" placeholder="* Mot de passe">
         <div class="row">
-            <input type="text" id="name" placeholder="Nom">
-            <input type="text" id="surname" placeholder="Prénom">
+            <input type="text" id="name" placeholder="* Nom">
+            <input type="text" id="surname" placeholder="* Prénom">
         </div>
         <div class="row">
-            <input type="text" id="center" placeholder="Centre">
-            <input type="text" id="promotion" placeholder="Promotion">
-            <button id="confirmation"></button>
+            <input type="text" id="center" placeholder="* Centre">
+            <input type="text" id="promotion" placeholder="* Promotion">
+            <button id="confirmation" onclick="confirmado()"></button>
+        </div>
+        <div id="labeltest">
+            <label>Votre mot de passe doit compter:</label><br>
+            <label>Une majuscule ... A, B, C, D ...</label><br>
+            <label>Un caractère spécial ... @, #, /, _ ...</label><br>
+            <label>Un chiffre ... 1, 2, 3, 4 ...</label><br>
         </div>
     </div>
+    <label>*Champs qui doivent être remplis</label>
 </body>
 </html>

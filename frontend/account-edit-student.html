@@ -4,11 +4,11 @@
     <title>Stage-A2Prix</title>
     <link rel="stylesheet" href="style/account-creation.css">
     <script src="script/createPiloteConfirm.js"></script>
-    <script src="script/createAccount.js"></script>
+    <script src="script/editAccount.js"></script>
 </head>
 <body>
     <div id="container">
-        <h1>Création de compte Pilote</h1>
+        <h1>Modification de compte</h1>
         <input type="text" id="account-id" placeholder="* Nom d'utilisateur">
         <input id="password" type="password" placeholder=" Mot de passe">
         <div class="row">
@@ -17,8 +17,11 @@
         </div>
         <div class="row">
             <input type="text" id="center" placeholder="* Centre">
-            <input type="text" id="promotion" placeholder="* Promotion assigné">
-            <button id="confirmation" onclick="confirmado()"></button>
+            <input type="text" id="promotion" placeholder="* Promotion">
+        </div>
+        <div id="buttons">
+            <button id="delete">&nbsp;</button>
+            <button id="edit" onclick="confirmado()">Modifier</button>
         </div>
         <div id="labeltest">
             <label>Votre mot de passe doit compter:</label><br>
@@ -29,5 +32,4 @@
     </div>
     <label>*Champs qui doivent être remplis</label>
 </body>
-
 </html>

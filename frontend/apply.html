@@ -3,6 +3,7 @@
 <head>
     <title>Stage-A2Prix</title>
     <link rel="stylesheet" href="style/apply.css">
+    <script src="script/apply.js"></script>
 </head>
 <body>
     <div id="bar">
@@ -10,10 +11,10 @@
     </div>
     <div id="box">
         <h1 class="text">CV</h1>
-        <button class="upload">Glissez le document</button>
+        <input class="upload" type="file" id="cv">Glissez le document</button>
         <h1 class="text">Lettre de motivation</h1>
-        <button class="upload">Glissez le document</button>
-        <button id="save">Enregistrer</button>
+        <input class="upload" type="file" id="lettre">Glissez le document</button>
+        <button id="save" onclick="confirmer()">Enregistrer</button>
     </div>
 </body>
 </html>

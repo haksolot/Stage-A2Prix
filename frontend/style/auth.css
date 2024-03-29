@@ -16,7 +16,7 @@ h1{
     top: 50%;
     left: 50%;
     width: 50%;
-    height: 300px;
+    height: 400px;
     display: flex; 
     flex-direction: column;
     flex-wrap: nowrap;
@@ -53,6 +53,16 @@ h1{
     background-position: 20px;
     user-select: none;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#alert-id{
+    color : red;
+    display : none;
+}
+
+#labeltest{
+    color : red;
+    display : none;
 }
 
 #account-id:hover{

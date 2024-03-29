@@ -8,14 +8,20 @@
     <script src="script/admin-dashboard-interactions.js"></script>
 </head>
 <body>
+    <div id="create-choices">
+        <button id="create-student" class="choices" onclick = "ModifieStudent()">Étudiant</button>
+        <button id="create-pilot" class="choices" onclick="ModifiePilot()">Pilote</button>
+        <button id="create-offer" class="choices" onclick ="ModifieEntreprise()">Entreprise</button>
+    </div>
     <div id="create-choice">
-        <button id="create-student" class="choice">Étudiant</button>
+        <button id="create-student" class="choice" onclick = "GoToCreateStudent()">Étudiant</button>
         <button id="create-pilot" class="choice" onclick="GoToCreatePilot()">Pilote</button>
-        <button id="create-offer" class="choice">Offre</button>
+        <button id="create-offer" class="choice" onclick ="GoToCreateOffer()">Offre>
     </div>  
+      
     <div id="to-blur">
         <div id="bar">
-            <button id="wishlist"></button>
+            <button id="wishlist" onclick = "GoToOffer()"></button>
             <input id="search" placeholder="Rechercher...">
             <button id="create-button">Créer</button>
             <button id="settings"></button>
