@@ -46,4 +46,5 @@ $test->setCompanyId(3);
 
 $test->setOffer("Niig", "fgdjkgdsfk", 12, 345, 2, 0, "12-11-2012", 2);
 
-$test->createOffer();
+$test->checkCompany();
+// $test->createOffer();

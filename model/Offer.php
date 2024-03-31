@@ -116,10 +116,24 @@ class Offer extends Pilot
         $this->setCreationDate($g);
         $this->setNotation($h);
     }
-    
+
+    public function checkCompany()
+    {
+        $checkCompanyExistence = "SELECT Nom_Ent FROM entreprise WHERE ID_Entreprise = :nom_entreprise";
+        $stmt = $this->db->prepare($checkCompanyExistence);
+        $stmt->bindParam(':nom_entreprise', $this->company_id, PDO::PARAM_STR);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function createOffer()
     {
-        if($this->checkName() == true){
+        if ($this->checkCompany() == true) {
             $insertStageQuery = "INSERT INTO Stage (Titre, Duree, Remuneration, Places, Nb_Postulants, Date_Parution, Notation, ID_Entreprise, Description)
                                 VALUES (:poste, :duree, :remuneration, :places, 0, :date, 0, :id_entreprise, :description)";
             $stmt = $this->db->prepare($insertStageQuery);
@@ -134,7 +148,7 @@ class Offer extends Pilot
 
             echo "Stage ajouté avec succès.";
         } else {
-            echo("l'entreprise n'existe pas");
+            echo ("L'entreprise n'existe pas");
         }
     }
 }
