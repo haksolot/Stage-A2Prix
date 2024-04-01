@@ -6,8 +6,7 @@
 <!DOCTYPE html>
 <head>
     <title>Stage-A2Prix</title>
-    <?php linkResource("stylesheet", "/frontend/style/account-creation.css"); ?>
-
+    <link rel="stylesheet" type="text/css" href="view/style/account-creation.css">
 </head>
 <body>
     <form id="container" action="" method="post">

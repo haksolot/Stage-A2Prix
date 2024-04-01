@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <head>
     <title>Stage-A2Prix</title>
-    <?php linkResource("stylesheet", "/frontend/style/offer-creation.css"); ?>
+    <link rel="stylesheet" type="text/css" href="view/style/offer-creation.css">
 </head>
 <body>
     <div id="container">

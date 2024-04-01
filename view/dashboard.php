@@ -5,9 +5,9 @@
 <!DOCTYPE html>
 <head>
     <title>Stage-A2Prix</title>
-    <?php linkResource("stylesheet", "/frontend/style/dashboard.css"); ?>
-    <?php linkResource("stylesheet", "/frontend/style/offer.css"); ?>
-    <?php linkScript("frontend/script/offer-interactions.js"); ?>
+    <link rel="stylesheet" type="text/css" href="view/style/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="view/style/offer.css">
+    <script src="view/script/offer-interactions.js"></script>
 </head>
 <body>
     <div id="bar">

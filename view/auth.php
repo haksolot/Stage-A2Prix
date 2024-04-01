@@ -8,7 +8,7 @@ include './backend/auth.php';
 
 <head>
     <title>Stage A2Prix</title>
-    <?php linkResource("stylesheet", '/frontend/style/auth.css');?>
+    <link rel="stylesheet" type="text/css" href="view/style/auth.css">
 </head>
 
 <body>

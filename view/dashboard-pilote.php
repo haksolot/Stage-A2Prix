@@ -6,12 +6,10 @@
 <html lang="fr">
 <head>
     <title>Stage-A2Prix</title>
-    <?php
-    linkResource("stylesheet", "frontend/style/dashboard.css");
-    linkResource("stylesheet", "frontend/style/offer.css");
-    linkScript("frontend/script/offer-interactions.js");
-    linkScript("frontend/script/admin-dashboard-interactions.js");
-    ?>
+    <link rel="stylesheet" type="text/css" href="view/style/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="view/style/offer.css">
+    <script src="view/script/offer-interactions.js"></script>
+    <script src="view/script/admin-dashboard-interactions.js"></script>
 </head>
 <body>
     <div id="create-choice">

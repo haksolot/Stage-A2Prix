@@ -24,7 +24,7 @@ body{
     background-color: #D9D9D9;
     outline: none;
     border: 0px solid #99ff9000;
-    background-image: url('/frontend/icons/wishlist.svg');
+    background-image: url('/view/icons/wishlist.svg');
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: 6px 8px;
@@ -45,7 +45,7 @@ body{
     padding-left: 40px;
     padding-right: 15px;
     font-family: Inter;
-    background-image: url('/frontend/icons/search.svg');
+    background-image: url('/view/icons/search.svg');
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: 10px;
@@ -67,7 +67,7 @@ body{
     padding-left: 40px;
     padding-right: 15px;
     font-family: Inter;
-    background-image: url('/frontend/icons/sector.svg');
+    background-image: url('/view/icons/sector.svg');
     background-repeat: no-repeat;
     background-size: 15px;
     background-position: 13px;
@@ -90,7 +90,7 @@ body{
     padding-left: 35px;
     padding-right: 15px;
     font-family: Inter;
-    background-image: url('/frontend/icons/location.svg');
+    background-image: url('/view/icons/location.svg');
     background-repeat: no-repeat;
     background-size: 15px;
     background-position: 10px;
@@ -113,7 +113,7 @@ body{
     padding-left: 37px;
     padding-right: 15px;
     font-family: Inter;
-    background-image: url('/frontend/icons/center.svg');
+    background-image: url('/view/icons/center.svg');
     background-repeat: no-repeat;
     background-size: 17px;
     background-position: 10px;
@@ -137,7 +137,7 @@ body{
     padding-right: 15px;
     font-family: Inter;
     color: #A3A3A3;
-    background-image: url('/frontend/icons/create.svg');
+    background-image: url('/view/icons/create.svg');
     background-repeat: no-repeat;
     background-size: 17px;
     background-position: 10px;
@@ -160,7 +160,7 @@ body{
     background-color: #D9D9D9;
     outline: none;
     border: 0px solid #99ff9000;
-    background-image: url('/frontend/icons/settings.svg');
+    background-image: url('/view/icons/settings.svg');
     background-repeat: no-repeat;
     background-size: 17px;
     background-position: 7px 7px;

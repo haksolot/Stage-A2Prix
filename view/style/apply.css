@@ -24,7 +24,7 @@ body{
     background-color: #D9D9D9;
     outline: none;
     border: 0px solid #99ff9000;
-    background-image: url('/frontend/icons/settings.svg');
+    background-image: url('/view/icons/settings.svg');
     background-repeat: no-repeat;
     background-size: 17px;
     background-position: 7px 7px;
@@ -65,7 +65,7 @@ body{
     padding-right: 15px;
     padding-left: 35px;
     border-radius: 20px;
-    background-image: url('/frontend/icons/upload.svg');
+    background-image: url('/view/icons/upload.svg');
     background-repeat: no-repeat;
     background-size: 13px;
     background-position: 15px 10px;
