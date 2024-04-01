@@ -5,11 +5,6 @@ class Pilot extends User
 {
     public $admin, $promotion, $center, $formation, $center_id, $promotion_id;
 
-    public function __construct()
-    {
-        $this->role = 'pilot';
-    }
-
     public function setAdmin($a)
     {
         $this->admin = $a;

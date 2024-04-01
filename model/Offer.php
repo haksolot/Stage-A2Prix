@@ -1,5 +1,5 @@
 <?php
-require_once 'Company.php';
+require_once 'Pilot.php';
 
 class Offer extends Pilot
 {
@@ -133,6 +133,7 @@ class Offer extends Pilot
 
     public function createOffer()
     {
+        $this->creation_date = date("Y-m-d");
         if ($this->checkCompany() == true) {
             $insertStageQuery = "INSERT INTO Stage (Titre, Duree, Remuneration, Places, Nb_Postulants, Date_Parution, Notation, ID_Entreprise, Description)
                                 VALUES (:poste, :duree, :remuneration, :places, 0, :date, 0, :id_entreprise, :description)";
