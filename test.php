@@ -14,21 +14,21 @@
 
 // $test->createPilot();
 
-require("./model/Student.php");
+// require("./model/Student.php");
 
-$test = new Student();
+// $test = new Student();
 
-$test->setName("Test");
-$test->setSurname("lol");
-$test->setLogin("patricksway");
-$test->setPassword("nword");
-$test->setYear(2014);
-$test->setPilote(4);
-$test->setAdmin(1);
-$test->setPromotion("nencore");
-$test->setCenter("Cesi ARRAS");
+// $test->setName("Test");
+// $test->setSurname("lol");
+// $test->setLogin("patricksway");
+// $test->setPassword("nword");
+// $test->setYear(2014);
+// $test->setPilote(4);
+// $test->setAdmin(1);
+// $test->setPromotion("nencore");
+// $test->setCenter("Cesi ARRAS");
 
-$test->createStudent();
+// $test->createStudent();
 
 // require("./model/Company.php");
 

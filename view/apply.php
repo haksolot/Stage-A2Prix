@@ -1,10 +1,9 @@
 <?php
-    include('./backend/tools/links.php');
 ?>
 <!DOCTYPE html>
 <head>
     <title>Stage-A2Prix</title>
-    <link rel="stylesheet" type="text/css" href="view/style/apply.css">
+    <link rel="stylesheet" type="text/css" href="../view/style/apply.css">
 </head>
 <body>
     <div id="bar">

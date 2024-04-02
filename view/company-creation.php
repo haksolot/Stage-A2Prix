@@ -1,12 +1,11 @@
 <?php
-    include('./backend/tools/links.php');
-    include('./backend/firewall/pilot-firewall.php');
-    include('./backend/create/create-company.php');
+include './controller/firewall/pilot-firewall.php';
+include './controller/create/create-company.php';
 ?>
 <!DOCTYPE html>
 <head>
     <title>Stage-A2Prix</title>
-    <link rel="stylesheet" type="text/css" href="view/style/company.css">
+    <link rel="stylesheet" type="text/css" href="../view/style/company.css">
 </head>
 <body>
     <div id="container" >

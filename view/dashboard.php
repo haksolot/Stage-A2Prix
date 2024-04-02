@@ -1,6 +1,5 @@
 <?php
-    include('./backend/tools/links.php');
-    include('./backend/firewall/student-firewall.php');
+    include('./controller/firewall/student-firewall.php');
 ?>
 <!DOCTYPE html>
 <head>

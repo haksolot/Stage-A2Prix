@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include('./backend/firewall/check-authorization.php');
+    include('./controller/firewall/check-authorization.php');
 
     checkLogin($_SESSION);
     $student = checkStudent($_SESSION);

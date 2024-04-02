@@ -124,7 +124,7 @@ h1{
     padding-left: 55px;
     font-family: Inter;
     user-select: none;
-    background-image: url('/frontend/icons/center.svg');
+    background-image: url('/view/icons/center.svg');
     background-repeat: no-repeat;
     background-size: 22px;
     background-position: 20px;
@@ -159,7 +159,7 @@ h1{
     outline: none;
     flex: 1;
     border-radius: 1.5vw;
-    background-image: url('/frontend/icons/arrow.svg');
+    background-image: url('/view/icons/arrow.svg');
     background-repeat: no-repeat;
     background-size: 25px;
     background-position: 50%;

@@ -1,12 +1,11 @@
 <?php
-    include('./backend/tools/links.php');
     // include('./backend/firewall/pilot-firewall.php');
     include('./backend/create/create-pilot.php');
 ?>
 <!DOCTYPE html>
 <head>
     <title>Stage-A2Prix</title>
-    <link rel="stylesheet" type="text/css" href="view/style/account-creation.css">
+    <link rel="stylesheet" type="text/css" href="../view/style/account-creation.css">
 </head>
 <body>
     <form id="container" action="" method="post">
