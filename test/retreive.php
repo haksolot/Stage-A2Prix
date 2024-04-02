@@ -42,7 +42,7 @@ function load() {
 
         // $smarty->assign('heading', strval($row["Titre"]));
         $smarty->assign('heading', strval($laa["Nom_Ent"]));
-        $smarty->assign('content', 'La rémunération est de: ' . strval($row["Remuneration"]) . '!');
+        $smarty->assign('c ontent', 'La rémunération est de: ' . strval($row["Remuneration"]) . '!');
         $smarty->display('index.tpl'); // Affiche le template
     }
 
