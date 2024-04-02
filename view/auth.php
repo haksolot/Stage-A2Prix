@@ -1,6 +1,5 @@
 <?php
-include './backend/tools/links.php';
-include './backend/auth.php';
+include './controller/auth.php';
 ?>
 
 <!DOCTYPE html>

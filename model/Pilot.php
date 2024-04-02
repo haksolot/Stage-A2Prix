@@ -109,13 +109,13 @@ class Pilot extends User
     }
 
     public function deletePilot()
-        {
+    {
         // Supprimer pilote de la table pilote
         $deletePilotQuery = "DELETE FROM Pilote WHERE ID_Pilote = :id_utilisateur";
         $stmt = $this->db->prepare($deletePiloteQuery);
         $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
         $stmt->execute();
-        
+
         // Puis de Utilisateur correspondant au Pilote
         $deleteUserQuery = "DELETE FROM Utilisateur WHERE ID_User = :id_utilisateur";
         $stmt = $this->db->prepare($deleteUserQuery);
@@ -146,7 +146,7 @@ class Pilot extends User
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         $id_admin = $row['ID_Admin'];
-        */
+         */
 
         $updateEntrepriseQuery = "UPDATE Entreprise SET ID_Admin = :id_admin, ID_Pilote = NULL WHERE ID_Pilote = :id_utilisateur";
         $stmt = $this->db->prepare($deleteEvaluationQuery);
@@ -162,8 +162,8 @@ class Pilot extends User
         if ($stmt->rowCount() > 0) {
             return true; // L'étudiant a été supprimé avec succès
         } else {
-        return false; // Échec de la suppression de l'étudiant
-            }
+            return false; // Échec de la suppression de l'étudiant
         }
+    }
 
 }

@@ -76,7 +76,6 @@ class User
         return $this->role;
     }
 
-
     public function setUser($name, $surname, $login, $id, $password)
     {
         setName($name);
@@ -135,5 +134,64 @@ class User
         }
     }
 
+    public function authUser()
+    {
+        echo ("Authing..");
+        $password = hash('sha512', $this->password);
+        $query = "SELECT * FROM Utilisateur WHERE Login=:username and Password=:password";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':username', $this->login, PDO::PARAM_STR);
+        $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+        $stmt->execute();
+        $rows = $stmt->rowCount();
+
+        if ($rows == 1) {
+            $_SESSION['logged_in'] = true;
+
+            $checkLoginExistence = "SELECT ID_User FROM utilisateur WHERE Login = :username";
+            $stmt = $this->db->prepare($checkLoginExistence);
+            $stmt->bindParam(':username', $this->login, PDO::PARAM_STR);
+            $stmt->execute();
+
+            if ($stmt->rowCount() > 0) {
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                $this->id = $row['ID_User'];
+
+                $checkPilot = "SELECT ID_Pilote FROM pilote WHERE ID_Pilote = :id";
+                $stmt = $this->db->prepare($checkPilot);
+                $stmt->bindParam(':id', $this->id, PDO::PARAM_INT);
+                $stmt->execute();
+
+                if ($stmt->rowCount() > 0) {
+                    $this->role = "pilot";
+                }
+
+                $checkStudent = "SELECT ID_Student FROM étudiant WHERE ID_Student = :id";
+                $stmt = $this->db->prepare($checkStudent);
+                $stmt->bindParam(':id', $this->id, PDO::PARAM_INT);
+                $stmt->execute();
+
+                if ($stmt->rowCount() > 0) {
+                    $this->role = "student";
+                }
+            } else {
+                echo ('Utilisateur n\'existe pas');
+            }
+
+            if ($this->role) {
+                $_SESSION['role'] = $this->role;
+                $_SESSION['id'] = $this->id;
+                if ($this->role == 'student') {
+                    header("Location: /dashboard");
+                } elseif ($this->role == 'pilot') {
+                    header("Location: /pilot-dashboard");
+                }
+            } else {
+                echo ("L'utilisateur n'a pas de role");
+            }
+        } else {
+            echo ("Le nom d'utilisateur ou le mot de passe est incorrect.");
+        }
+    }
 
 }
