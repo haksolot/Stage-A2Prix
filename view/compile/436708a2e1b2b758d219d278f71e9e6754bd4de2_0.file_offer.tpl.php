@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 5.0.2, created on 2024-04-02 21:03:08
+/* Smarty version 5.0.2, created on 2024-04-02 21:08:42
   from 'file:offer.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.0.2',
-  'unifunc' => 'content_660c728c1ac369_18705588',
+  'unifunc' => 'content_660c73da9e0da7_25401007',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_660c728c1ac369_18705588 (\Smarty\Template $_smarty_tpl) {
+function content_660c73da9e0da7_25401007 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\Users\\seanl\\Documents\\Code\\Stage-A2Prix\\view\\template';
 ?><!-- offer.tpl -->
 <html>
