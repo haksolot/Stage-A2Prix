@@ -90,7 +90,7 @@ function loadOffers()
         $smarty->assign('sector', $sector);
         $smarty->assign('money', $row["Remuneration"]);
         $smarty->assign('openings', $row["Places"]);
-        $smarty->assign('description', $row["Description"]);
+        $smarty->assign('description', $row["description"]);
         $smarty->assign('duration', $row["Duree"]);
         $smarty->display('offer.tpl');
     }

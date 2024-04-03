@@ -2,6 +2,7 @@
 include './controller/firewall/student-firewall.php';
 include './controller/load/loadOffers.php';
 include './controller/load/loadPeople.php';
+include './controller/search/searchCompany.php';
 ?>
 <!DOCTYPE html>
 <head>
@@ -21,6 +22,10 @@ include './controller/load/loadPeople.php';
         <button id="settings"></button>
     </div>
     <div id="scroller">
-        <?php loadPeople();?>
+        <?php 
+        searchCompany("Trito");
+        // loadPeople();
+        // loadOffers();
+        ?>
     </div>
 </body>
