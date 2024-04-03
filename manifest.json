@@ -4,8 +4,8 @@
     "description": "Ceci est un test, (merci de le changer)",
     "start_url": "/index.php",
     "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#4CAF50",
+    "background_color": "#FFFFFF",
+    "theme_color": "#989898",
     "Orientation": "Portrait",
     "icons": [
         {

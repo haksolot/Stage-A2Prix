@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var elements = document.querySelectorAll('.apply');
     elements.forEach(function(element) {
         element.addEventListener('click', function() {
-            window.location.href = 'apply.html';
+            window.location.href = 'apply.php';
         });
     });
 });
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.querySelector('.offer-sector').style.display = 'none';
                 document.querySelector('.offer-money').style.display = 'none';
                 document.querySelector('.offer-people').style.display = 'none';
-                document.querySelector('.offer-line-vertical').style.display = 'none';
+                //document.querySelector('.offer-line-vertical').style.display = 'none';
                 document.querySelector('.offer-time').style.display = 'none';
     
                 // Afficher les champs d'entrée correspondants
@@ -142,6 +142,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 var descriptionInput = button.closest('.offer-container').querySelector('.offer-description-input');
                 var caracInputs = button.closest('.offer-container').querySelectorAll('.offer-carac-input');
                 // Afficher à nouveau les éléments d'affichage et masquer les champs d'entrée
+
+                document.querySelector('.offer-star-holder').style.display = 'flex';
+                document.querySelector('.offer-like-container').style.display = 'flex';
+                document.querySelector('.offer-sector').style.display = 'block';
+                document.querySelector('.offer-money').style.display = 'block';
+                document.querySelector('.offer-people').style.display = 'block';
+                //document.querySelector('.offer-line-vertical').style.display = 'none';
+                document.querySelector('.offer-time').style.display = 'block';
 
                 h1Title.textContent = titleH1Input.value;
                 h2Title.textContent = titleH2Input.value;
