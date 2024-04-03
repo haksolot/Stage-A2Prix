@@ -216,4 +216,47 @@ class Company extends Pilot
             echo ("L'entreprise existe déjà");
         }
     }
+
+    public function deleteCompany()
+    {
+        // Supprimer l'entreprise de la table Entreprise
+        $deleteCompanyQuery = "DELETE FROM Entreprise WHERE ID_Entreprise = :id_company";
+        $stmt = $this->db->prepare($deleteCompanyQuery);
+        $stmt->bindParam(':id_company', $this->company_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Ensuite, suppression des tables dépandantes de l'entreprise
+        $deleteInternshipQuery = "DELETE FROM Stage WHERE ID_Entreprise = :id_company";
+        $stmt = $this->db->prepare($deleteInternshipQuery);
+        $stmt->bindParam(':id_company', $this->company_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $deleteKnowledgeQuery = "DELETE FROM Créer WHERE ID_Entreprise = :id_company";
+        $stmt = $this->db->prepare($deleteKnowledgeQuery);
+        $stmt->bindParam(':id_company', $this->company_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        //Enfin, on supprime toutes les tables évaluations de l'entreprise
+        $deleteEvaluationStudentQuery = "DELETE FROM EVE WHERE ID_Entreprise = :id_company";
+        $stmt = $this->db->prepare($deleteEvaluationStudentQuery);
+        $stmt->bindParam(':id_company', $this->company_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $deleteEvaluationAdminQuery = "DELETE FROM EVA WHERE ID_Entreprise = :id_company";
+        $stmt = $this->db->prepare($deleteEvaluationAdminQuery);
+        $stmt->bindParam(':id_company', $this->company_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $deleteEvaluationPilotQuery = "DELETE FROM EVP WHERE ID_Entreprise = :id_company";
+        $stmt = $this->db->prepare($deleteEvaluationPilotQuery);
+        $stmt->bindParam(':id_company', $this->company_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Vérifier si la suppression a réussi
+        if ($stmt->rowCount() > 0) {
+            return true; // L'étudiant a été supprimé avec succès
+        } else {
+            return false; // Échec de la suppression de l'étudiant
+        }
+    }
 }
