@@ -3,6 +3,9 @@ include './controller/firewall/student-firewall.php';
 include './controller/load/loadOffers.php';
 include './controller/load/loadPeople.php';
 include './controller/search/searchCompany.php';
+include './controller/search/searchSector.php';
+include './controller/search/searchCity.php';
+include './controller/search/searchCenter.php';
 ?>
 <!DOCTYPE html>
 <head>
@@ -23,9 +26,12 @@ include './controller/search/searchCompany.php';
     </div>
     <div id="scroller">
         <?php 
-        searchCompany("Trito");
+        // searchCompany("Trito");
         // loadPeople();
         // loadOffers();
+        // searchSector("Inf");
+        // searchCity("Par");
+        searchCenter("CESI Ango");
         ?>
     </div>
 </body>
