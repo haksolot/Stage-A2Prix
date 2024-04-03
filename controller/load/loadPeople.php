@@ -9,9 +9,6 @@ function loadPeople()
 
     global $smarty;
 
-    $promo = null;
-    $campus = 1;
-
     $page_actuelle = isset($_GET['page']) ? $_GET['page'] : 1;
 
     $elements_par_page = 30;
@@ -25,6 +22,11 @@ function loadPeople()
     $stmt->execute();
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $nom = null;
+        $prenom = null;
+        $promo = null;
+        $centre = null;
+        $role = null;
 
         $check1 = "SELECT * FROM étudiant WHERE ID_Student = :id_student";
         $result1 = $db->prepare($check1);
@@ -43,9 +45,10 @@ function loadPeople()
             promotion.Nom_Promo AS promo,
             centre.Nom_Centre AS centre
             FROM utilisateur
-            INNER JOIN étudiant ON :userid = étudiant.ID_Student
+            INNER JOIN étudiant ON utilisateur.ID_User = étudiant.ID_Student
             INNER JOIN promotion ON étudiant.ID_Promotion = promotion.ID_Promotion
-            INNER JOIN centre ON promotion.ID_Formation = centre.Id_Formation;
+            INNER JOIN centre ON promotion.ID_Formation = centre.Id_Formation
+            WHERE ID_User = :userid;
             ";
             $result = $db->prepare($studentQuery);
             $result->bindParam('userid', $row['ID_User']);
@@ -53,7 +56,18 @@ function loadPeople()
 
             $studentData = $result->fetch(PDO::FETCH_ASSOC);
 
-            echo($studentData['nom']);
+            $nom = $studentData['nom'];
+            $prenom = $studentData['prenom'];
+            $promo = $studentData['promo'];
+            $centre = $studentData['centre'];
+            $role = 'student';
+
+            $smarty->assign('id', $row['ID_User']);
+            $smarty->assign('name', $nom);
+            $smarty->assign('surname', $prenom);
+            $smarty->assign('promotion', $promo);
+            $smarty->assign('campus', $centre);
+            $smarty->display('person.tpl');
 
         } else if ($result2->rowCount() > 0) {
             $role = "pilot";
@@ -62,8 +76,9 @@ function loadPeople()
             promotion.Nom_Promo AS promo,
             centre.Nom_Centre AS centre
             FROM utilisateur
-            INNER JOIN promotion ON :userid = promotion.ID_Pilote
-            INNER JOIN centre ON promotion.ID_Formation = centre.Id_Formation;
+            INNER JOIN promotion ON utilisateur.ID_User = promotion.ID_Pilote
+            INNER JOIN centre ON promotion.ID_Formation = centre.Id_Formation
+            WHERE ID_User = :userid;
             ";
             $result = $db->prepare($pilotQuery);
             $result->bindParam('userid', $row['ID_User']);
@@ -71,17 +86,21 @@ function loadPeople()
 
             $pilotData = $result->fetch(PDO::FETCH_ASSOC);
 
-            echo($pilotData['nom']);
+            $nom = $pilotData['nom'];
+            $prenom = $pilotData['prenom'];
+            $promo = $pilotData['promo'];
+            $centre = $pilotData['centre'];
+            $role = 'pilot';
 
+            $smarty->assign('id', $row['ID_User']);
+            $smarty->assign('name', $nom);
+            $smarty->assign('surname', $prenom);
+            $smarty->assign('promotion', $promo);
+            $smarty->assign('campus', $centre);
+            $smarty->display('person.tpl');
         } else {
-            echo("rien");
+
         }
 
-        $smarty->assign('id', $row['ID_User']);
-        $smarty->assign('name', $row['Nom_user']);
-        $smarty->assign('surname', $row['Prenom_user']);
-        $smarty->assign('promotion', $promo);
-        $smarty->assign('campus', $campus);
-        $smarty->display('person.tpl');
     }
 }
