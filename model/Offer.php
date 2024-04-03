@@ -152,4 +152,31 @@ class Offer extends Pilot
             echo ("L'entreprise n'existe pas");
         }
     }
+
+    public function deleteOffer()
+    {
+        // Supprimer le stage de la table Stage :
+        $deleteInternshipQuery = "DELETE FROM Stage WHERE ID_Stage = :id_stage";
+        $stmt = $this->db->prepare($deleteInternshipQuery);
+        $stmt->bindParam(':id_stage', $this->offer_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Ensuite, suppression des tables dépandantes du stage :
+        $deleteCandidaterQuery = "DELETE FROM Candidater WHERE ID_Stage = :id_stage";
+        $stmt = $this->db->prepare($deleteEvaluationQuery);
+        $stmt->bindParam(':id_stage', $this->offer_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $deleteSouhaiterQuery = "DELETE FROM Souhaiter WHERE ID_Stage = :id_stage";
+        $stmt = $this->db->prepare($deleteSouhaiterQuery);
+        $stmt->bindParam(':id_stage', $this->offer_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Vérifier si la suppression a réussi
+        if ($stmt->rowCount() > 0) {
+            return true; // L'étudiant a été supprimé avec succès
+        } else {
+            return false; // Échec de la suppression de l'étudiant
+        }
+    }
 }
