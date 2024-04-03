@@ -1,9 +1,9 @@
 <?php
-require './db.php';
+require_once 'db.php';
 require_once 'view/template.php';
-function load()
-{
 
+function loadOffers()
+{
     $Database = new Database();
     $db = $Database->connect();
 
@@ -83,6 +83,7 @@ function load()
         $city = $result["Nom_Ville"];
         $cp = $result["CP"];
 
+        $smarty->assign('id', $row["ID_Stage"]);
         $smarty->assign('company', $laa["Nom_Ent"]);
         $smarty->assign('poste', $row["Titre"]);
         $smarty->assign('adress', $city . " (".$cp.") - " . $location);

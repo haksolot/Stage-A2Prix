@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.0.2, created on 2024-04-02 21:08:42
+/* Smarty version 5.0.2, created on 2024-04-03 09:05:20
   from 'file:offer.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.0.2',
-  'unifunc' => 'content_660c73da9e0da7_25401007',
+  'unifunc' => 'content_660d1bd0a59399_99310899',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '436708a2e1b2b758d219d278f71e9e6754bd4de2' => 
     array (
       0 => 'offer.tpl',
-      1 => 1712088675,
+      1 => 1712135119,
       2 => 'file',
     ),
   ),
@@ -20,14 +20,14 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   array (
   ),
 ))) {
-function content_660c73da9e0da7_25401007 (\Smarty\Template $_smarty_tpl) {
+function content_660d1bd0a59399_99310899 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\Users\\seanl\\Documents\\Code\\Stage-A2Prix\\view\\template';
 ?><!-- offer.tpl -->
 <html>
   <head>
-    <link rel="stylesheet" href="../style/offer.css"/>
   </head>
-  <div id="offer" class="offer-background closed">
+  <div id="<?php echo $_smarty_tpl->getValue('id');?>
+" class="offer-background closed">
     <div class="top-part">
       <div class="offer-left">
         <div class="offer-title">

@@ -1,9 +1,8 @@
 <!-- offer.tpl -->
 <html>
   <head>
-    <link rel="stylesheet" href="../style/offer.css"/>
   </head>
-  <div id="offer" class="offer-background closed">
+  <div id="{$id}" class="offer-background closed">
     <div class="top-part">
       <div class="offer-left">
         <div class="offer-title">
