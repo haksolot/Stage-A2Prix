@@ -46,15 +46,51 @@ function load()
         $la->execute();
         $laa = $la->fetch(PDO::FETCH_ASSOC);
 
+        $requete1 = "SELECT Type_Ent AS sector FROM entreprise WHERE ID_Entreprise = :id_ent";
+        $first = $db->prepare($requete1);
+        $first->bindParam(':id_ent', $id_ent, PDO::PARAM_INT);
+        $first->execute();
+        $sector = $first->fetch(PDO::FETCH_ASSOC);
+        $sector = $sector["sector"];
+
+        $requete2 = "SELECT e.ID_City AS location, l.Adresse
+        FROM entreprise e
+        JOIN localisation l ON e.ID_City = l.ID_City
+        WHERE e.ID_Entreprise = :id_ent;
+        ";
+        $second = $db->prepare($requete2);
+        $second->bindParam(':id_ent', $id_ent, PDO::PARAM_INT);
+        $second->execute();
+        $location = $second->fetch(PDO::FETCH_ASSOC);
+        $location = $location["Adresse"];
+
+        $requete3 = "SELECT
+        e.ID_City AS location,
+        l.ID_Ville AS id_ville,
+        v.Nom_Ville,
+        v.CP
+        FROM
+        entreprise e
+        JOIN localisation l ON e.ID_City = l.ID_City
+        JOIN ville v ON l.ID_Ville = v.ID_Ville
+        WHERE
+        e.ID_Entreprise = :id_ent;
+        ";
+        $third = $db->prepare($requete3);
+        $third->bindParam(':id_ent', $id_ent, PDO::PARAM_INT);
+        $third->execute();
+        $result = $third->fetch(PDO::FETCH_ASSOC);
+        $city = $result["Nom_Ville"];
+        $cp = $result["CP"];
+
         $smarty->assign('company', $laa["Nom_Ent"]);
-        // $smarty->assign('poste', "chepa");
-        // $smarty->assign('adress', "11 rue de la bite");
-        // $smarty->assign('sector', "Tech");
-        // $smarty->assign('money', 123);
-        // $smarty->assign('openings', 1);
-        // $smarty->assign('description', "ghfdjkgh dsfasd fdas fdas fsda fasd fasdfsadfasd");
-        // $smarty->assign('duration', 7);
-        // $smarty->display('offer.tpl');
+        $smarty->assign('poste', $row["Titre"]);
+        $smarty->assign('adress', $city . " (".$cp.") - " . $location);
+        $smarty->assign('sector', $sector);
+        $smarty->assign('money', $row["Remuneration"]);
+        $smarty->assign('openings', $row["Places"]);
+        $smarty->assign('description', $row["Description"]);
+        $smarty->assign('duration', $row["Duree"]);
         $smarty->display('offer.tpl');
     }
 
