@@ -1,5 +1,6 @@
 <?php
     include('./controller/firewall/pilot-firewall.php');
+    echo($_SESSION['ID_Entreprise']);
 ?>  
 <!DOCTYPE html>
 <html lang="fr">

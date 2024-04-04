@@ -208,9 +208,28 @@ class Company extends Pilot
             // $stmt->bindParam(':id_adresse', $id_adresse, PDO::PARAM_INT);
             $stmt->execute();
 
+            $queryIdCompany = "SELECT ID_Entreprise FROM entreprise WHERE Nom_Ent = :nom_entreprise";
+            $stmt = $this->db->prepare($queryIdCompany);
+            $stmt->bindParam(':nom_entreprise', $this->company_name, PDO::PARAM_STR);
+            $stmt->execute();
+
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            $this->company->setCompany = $result['ID_Entreprise'];
+            $_SESSION['ID_Entrperise'] = $result['ID_Entreprise'];
+
+
             echo "Entreprise ajoutée avec succès.";
         } else if ($this->checkName() == true) {
-            $company->setCompany = ;
+            $queryIdCompany = "SELECT ID_Entreprise FROM entreprise WHERE Nom_Ent = :nom_entreprise";
+            $stmt = $this->db->prepare($queryIdCompany);
+            $stmt->bindParam(':nom_entreprise', $this->company_name, PDO::PARAM_STR);
+            $stmt->execute();
+
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            $this->company->setCompany = $result['ID_Entreprise'];
+            $_SESSION['ID_Entrperise'] = $result['ID_Entreprise'];
             echo ("L'entreprise existe déjà");
         }
     }
