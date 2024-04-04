@@ -181,4 +181,100 @@ class Student extends User
             return false; // Échec de la suppression de l'étudiant
         }
     }
+
+    public function checkSameLine(){
+
+        $checkSameLineQuery = "SELECT p.ID_Promotion 
+        FROM promotion p 
+        JOIN centre c ON p.ID_Formation = c.ID_Formation 
+        WHERE c.Nom_Centre = :center 
+        AND p.Nom_Promo = :promotion;"
+        ;
+
+        $stmt = $this->db->prepare($checkSameLineQuery);
+        $stmt->bindParam(':promotion', $this->promotion, PDO::PARAM_STR);
+        $stmt->bindParam(':center', $this->center, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($stmt->rowCount() > 0) {
+            $this->promotion_id = $result['ID_Promotion'];
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    public function checkIdExist($CurrentId){
+        $checkLoginExistence = "SELECT * FROM étudiant WHERE ID_Student = :id;";
+        $stmt = $this->db->prepare($checkLoginExistence);
+        $stmt->bindParam(':id', $CurrentId, PDO::PARAM_STR);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    public function checkCenterAndPromoExist(){
+
+        $insertUserQuery = "SELECT promotion.Nom_Promo, centre.Nom_Centre
+        FROM promotion
+        INNER JOIN centre ON promotion.ID_Formation = centre.ID_Formation
+        WHERE promotion.Nom_Promo = :promo AND centre.Nom_Centre = :center ;
+        ";
+
+        $stmt = $this->db->prepare($insertUserQuery);
+
+        $stmt->bindParam(':promo', $this->promotion, PDO::PARAM_STR);
+        $stmt->bindParam(':center', $this->center, PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            return true;
+            echo "promo exist";
+        } else {
+            return false;
+            echo "promo sont exist";
+        }
+
+    }
+
+
+    public function updateStudent($idToModif){
+
+        if ($this->checkIdExist($idToModif) == true) {
+
+            if ($this->checkCenterAndPromoExist() == true){
+
+                $insertUserQuery = "UPDATE utilisateur
+                SET Nom_user = :nName, Prenom_user = :nSurname
+                WHERE ID_User = :userId;
+                
+                UPDATE étudiant
+                SET ID_Promotion = (
+                    SELECT ID_Promotion
+                    FROM promotion
+                    WHERE Nom_Promo = :promo
+                )
+                WHERE ID_Student = :userId;
+                ";
+    
+                $stmt = $this->db->prepare($insertUserQuery);
+                $stmt->bindParam(':nName', $this->name, PDO::PARAM_STR);
+                $stmt->bindParam(':nSurname', $this->surname, PDO::PARAM_STR);
+                $stmt->bindParam(':promo', $this->promotion, PDO::PARAM_STR);
+                $stmt->bindParam(':userId', $idToModif, PDO::PARAM_STR);
+                $stmt->execute();
+                header("Location: ../dashboard");
+            }
+
+        }
+
+    }
+
 }

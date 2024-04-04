@@ -52,6 +52,10 @@ switch ($request_uri) {
         // Route pour la page de connexion
         include 'view/offer-creation.php';
         break;
+    case '/edit/student':
+        // Route pour la page de connexion
+        include 'view/update-student.php';
+        break;
     // Ajoute d'autres routes au besoin
     default:
         // Route par défaut (404)
