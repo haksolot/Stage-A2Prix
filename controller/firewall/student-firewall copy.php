@@ -8,13 +8,13 @@
     $admin = checkAdmin($_SESSION);
 
     if($student == true) {
-        header("Location: /dashboard");
-    }
-    else if($admin == true){
-        header("Location: /admin-dashboard");
+        
     }
     else if($pilot == true) {
-
+        header("Location: /pilot-dashboard");
+    }
+    else if($admin == true) {
+        header("Location: /admin-dashboard");
     }
     else {
         header("Location: /login");

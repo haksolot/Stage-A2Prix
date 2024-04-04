@@ -78,11 +78,11 @@ class User
 
     public function setUser($name, $surname, $login, $id, $password)
     {
-        setName($name);
-        setSurname($surname);
-        setLogin($login);
-        setId($id);
-        setPassword($password);
+        $this->setName($name);
+        $this->setSurname($surname);
+        $this->setLogin($login);
+        $this->setId($id);
+        $this->setPassword($password);
     }
 
     public function getUser()
@@ -136,7 +136,7 @@ class User
 
     public function authUser()
     {
-        echo ("Authing..");
+        // echo ("Authing..");
         $password = hash('sha512', $this->password);
         $query = "SELECT * FROM Utilisateur WHERE Login=:username and Password=:password";
         $stmt = $this->db->prepare($query);
@@ -174,6 +174,16 @@ class User
                 if ($stmt->rowCount() > 0) {
                     $this->role = "student";
                 }
+
+                $checkAdmin = "SELECT ID_Admin FROM admin WHERE ID_Admin = :id";
+                $stmt = $this->db->prepare($checkAdmin);
+                $stmt->bindParam(':id', $this->id, PDO::PARAM_INT);
+                $stmt->execute();
+
+                if ($stmt->rowCount() > 0) {
+                    $this->role = "admin";
+                }
+                
             } else {
                 echo ('Utilisateur n\'existe pas');
             }
@@ -185,6 +195,8 @@ class User
                     header("Location: /dashboard");
                 } elseif ($this->role == 'pilot') {
                     header("Location: /pilot-dashboard");
+                } elseif($this->role == 'admin') {
+                    header("Location: /admin-dashboard");
                 }
             } else {
                 echo ("L'utilisateur n'a pas de role");
