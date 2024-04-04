@@ -163,4 +163,21 @@ class Pilot extends User
         }
     }
 
+    function updatePilote($currentId){
+        echo $this->name.$this->surname;
+        $insertUserQuery = "UPDATE utilisateur
+        SET Nom_user = :nName , Prenom_user = :nSurname
+        WHERE ID_User = :currentId;
+        
+        ";
+
+        $stmt = $this->db->prepare($insertUserQuery);
+        $stmt->bindParam(':nName', $this->name, PDO::PARAM_STR);
+        $stmt->bindParam(':nSurname', $this->surname, PDO::PARAM_STR);
+        $stmt->bindParam(':currentId', $currentId, PDO::PARAM_STR);
+        $stmt->execute();
+        header("Location: ../pilot-dashboard");
+    }
+    
+
 }
