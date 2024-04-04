@@ -3,7 +3,15 @@ require_once 'User.php';
 
 class Pilot extends User
 {
-    public $admin, $promotion, $center, $formation, $center_id, $promotion_id;
+    public $admin, $promotion, $center, $formation, $center_id, $promotion_id, $company;
+
+    public function setCompany($a){
+        $this->company = $a;
+    }
+
+    public function getCompany(){
+        return $this->company;
+    }
 
     public function setAdmin($a)
     {

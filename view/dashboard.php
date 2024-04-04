@@ -16,22 +16,31 @@ include './controller/search/searchCenter.php';
     <script src="view/script/offer-interactions.js"></script>
 </head>
 <body>
-    <div id="bar">
+    <form id="bar" method="POST">
         <button id="wishlist"></button>
-        <input id="search" placeholder="Rechercer..">
-        <input id="sector" placeholder="Secteur">
-        <input id="location" placeholder="Localité">
-        <input id="center" placeholder="Center">
+        <input id="search" name="search" placeholder="Rechercer..">
+        <input id="sector" name="sector" placeholder="Secteur">
+        <input id="location" name="location" placeholder="Localité">
+        <input id="center" name="center" placeholder="Center">
         <button id="settings"></button>
-    </div>
+    </form>
     <div id="scroller">
-        <?php 
-        // searchCompany("Trito");
-        // loadPeople();
-        // loadOffers();
-        // searchSector("Inf");
-        // searchCity("Par");
-        searchCenter("CESI Ango");
-        ?>
+        <?php
+        if(isset($_POST['search'])){
+            searchCompany($_POST['search']);
+        } else if(isset($_POST['sector'])){
+            searchSector($_POST['sector']);
+        } else if(isset($_POST['location'])){
+            searchCity($_POST['location']);
+        } else if(isset($_POST['center'])){
+            searchCenter($_POST['center']);
+        }
+// searchCompany("Trito");
+// loadPeople();
+loadOffers();
+// searchSector("Inf");
+// searchCity("Par");
+// searchCenter("CESI Ango");
+?>
     </div>
 </body>

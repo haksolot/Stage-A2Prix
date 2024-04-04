@@ -192,9 +192,6 @@ class Company extends Pilot
             $insertEntrepriseQuery = "INSERT INTO Entreprise (Nom_Ent, Type_Ent, Nb_postulant, Evaluation, Description, Numero_SIRET, Forme_Juridique, Capital_Social, Hébergeur, ID_Pilote, ID_City, ID_Admin)
                                         VALUES (:nom_entreprise, :secteur, 0, 0, :description, :siret, :juridique, :capital, :hebergeur, 2, :id_city, 3)";
 
-            // $insertEntrepriseQuery = "INSERT INTO Entreprise (Nom_Ent, Type_Ent, Nb_postulant, Evaluation, Description, Numero_SIRET, Forme_Juridique, Capital_Social, Hébergeur, ID_Pilote, ID_City, ID_Admin)
-            //                             VALUES (:nom_entreprise, :secteur, 0, 0, :description, :siret, :juridique, :capital, :hebergeur, :pilot, :id_adresse, :admin)";
-
             $stmt = $this->db->prepare($insertEntrepriseQuery);
             $stmt->bindParam(':nom_entreprise', $this->company_name, PDO::PARAM_STR);
             $stmt->bindParam(':secteur', $this->type, PDO::PARAM_STR);
@@ -213,6 +210,7 @@ class Company extends Pilot
 
             echo "Entreprise ajoutée avec succès.";
         } else if ($this->checkName() == true) {
+            $company->setCompany = ;
             echo ("L'entreprise existe déjà");
         }
     }

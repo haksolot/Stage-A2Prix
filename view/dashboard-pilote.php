@@ -1,6 +1,6 @@
 <?php
     include('./controller/firewall/pilot-firewall.php');
-?>
+?>  
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,8 +12,8 @@
 </head>
 <body>
     <div id="create-choice">
-        <button id="create-student" class="choice">Étudiant</button>
-        <button id="create-offer" class="choice">Offre</button>
+        <button onclick="window.location.href = '/create/student';" id="create-student" class="choice">Étudiant</button>
+        <button onclick="window.location.href = '/create/offer';" id="create-offer" class="choice">Offre</button>
     </div>  
     <div id="to-blur">
         <div id="bar">
