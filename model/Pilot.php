@@ -3,7 +3,7 @@ require_once 'User.php';
 
 class Pilot extends User
 {
-    public $admin, $name , $surname ,$promotion, $center, $formation, $center_id, $promotion_id;
+    public $admin,$promotion, $center, $formation, $center_id, $promotion_id;
 
     public function setAdmin($a)
     {
