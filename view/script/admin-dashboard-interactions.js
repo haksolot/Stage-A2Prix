@@ -4,29 +4,45 @@ function GoToCreatePilot(){
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    var createButton = document.getElementById('create-button');
+    var settings = document.getElementById('create-button');
     var toBlur = document.getElementById('to-blur');
-    var choice = document.getElementById('create-choice');
+    var choices = document.getElementById('create-choice');
 
-    createButton.addEventListener('click', function() {
+    settings.addEventListener('click', function(event) {
+        event.stopPropagation(); // Empêche le clic de se propager au document
         toBlur.style.filter = "blur(5px)";
-        choice.style.display = 'flex'; // Affiche l'overlay
+        choices.style.display = 'flex'; // Affiche l'overlay
     });
 
+    document.addEventListener('click', function(event) {
+        // On vérifie si l'événement de clic est à l'extérieur de `choices`
+        if (!choices.contains(event.target) && choices.style.display === 'flex') {
+            toBlur.style.filter = "blur(0px)";
+            choices.style.display = 'none'; // Cache l'overlay
+        }
+    });
 });
 
-document.addEventListener('click', function(event) {
-    var createButton = document.getElementById('create-button');
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var settings = document.getElementById('settings');
     var toBlur = document.getElementById('to-blur');
-    var choice = document.getElementById('create-choice');
+    var choices = document.getElementById('create-choices');
 
-    if(event.target != createButton){
-        toBlur.style.filter = "blur(0px)";
-        choice.style.display = 'none';
-    }
-    else{
+    settings.addEventListener('click', function(event) {
+        event.stopPropagation(); // Empêche le clic de se propager au document
+        toBlur.style.filter = "blur(5px)";
+        choices.style.display = 'flex'; // Affiche l'overlay
+    });
 
-    } 
+    document.addEventListener('click', function(event) {
+        // On vérifie si l'événement de clic est à l'extérieur de `choices`
+        if (!choices.contains(event.target) && choices.style.display === 'flex') {
+            toBlur.style.filter = "blur(0px)";
+            choices.style.display = 'none'; // Cache l'overlay
+        }
+    });
 });
 
 

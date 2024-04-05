@@ -1,6 +1,5 @@
 <?php
     include('./controller/firewall/pilot-firewall.php');
-    echo($_SESSION['ID_Entreprise']);
 ?>  
 <!DOCTYPE html>
 <html lang="fr">
@@ -16,12 +15,16 @@
         <button onclick="window.location.href = '/create/student';" id="create-student" class="choice">Étudiant</button>
         <button onclick="window.location.href = '/create/offer';" id="create-offer" class="choice">Offre</button>
     </div>  
+    <div id="create-choices">
+        <button onclick="window.location.href = '/edit/pilote';" id="edit-pilote" class="choices">Compte</button>
+        <button onclick="window.location.href = '/list/students';" id="list-students" class="choices">Etudiants</button>
+    </div>  
     <div id="to-blur">
         <div id="bar">
             <button id="wishlist"></button>
             <input id="search" placeholder="Rechercer..">
             <button id="create-button">Créer</button>
-            <button id="settings"></button>
+            <button id="settings" ></button>
         </div>
         <div id="scroller">
             <link rel="stylesheet" href="/style/offer.css">

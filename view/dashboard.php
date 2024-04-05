@@ -22,7 +22,7 @@ include './controller/search/searchCenter.php';
         <input id="sector" name="sector" placeholder="Secteur">
         <input id="location" name="location" placeholder="Localité">
         <input id="center" name="center" placeholder="Center">
-        <button id="settings"></button>
+        <button id="settings" onclick="window.location.href = '/edit/student';"></button>
     </form>
     <div id="scroller">
         <?php
