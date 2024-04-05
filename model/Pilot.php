@@ -119,41 +119,53 @@ class Pilot extends User
     public function deletePilot()
     {
         // Supprimer pilote de la table pilote
+        try{
         $deletePilotQuery = "DELETE FROM Pilote WHERE ID_Pilote = :id_utilisateur";
         $stmt = $this->db->prepare($deletePiloteQuery);
         $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
         $stmt->execute();
+        } catch (PDOException $e) {}
 
         // Puis de Utilisateur correspondant au Pilote
+        try{
         $deleteUserQuery = "DELETE FROM Utilisateur WHERE ID_User = :id_utilisateur";
         $stmt = $this->db->prepare($deleteUserQuery);
         $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
         $stmt->execute();
+        } catch (PDOException $e) {}
 
         // Ensuite, suppression des tables dépandantes du pilote
+        try{
         $deleteEvaluationQuery = "DELETE FROM EVP WHERE ID_Pilote = :id_utilisateur";
         $stmt = $this->db->prepare($deleteEvaluationQuery);
         $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
         $stmt->execute();
+        } catch (PDOException $e) {}
 
+        try{
         $deletePromotionQuery = "DELETE FROM Promotion WHERE ID_Pilote = :id_utilisateur";
         $stmt = $this->db->prepare($deleteEvaluationQuery);
         $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
         $stmt->execute();
+        }
+        catch (PDOException $e) {}
 
         //Puis on supprime là ou l'ID_Pilote est utilisée (entreprise et étudiant)
-
+        try{
         $updateEntrepriseQuery = "UPDATE Entreprise SET ID_Admin = :id_admin, ID_Pilote = NULL WHERE ID_Pilote = :id_utilisateur";
         $stmt = $this->db->prepare($deleteEvaluationQuery);
         $stmt->bindParam(':id_admin', $this->admin, PDO::PARAM_INT);
         $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
         $stmt->execute();
+        } catch (PDOException $e) {}
 
+        try{
         $updateStudentQuery = "UPDATE Étudiant SET ID_Admin = :id_admin, ID_Pilote = NULL WHERE ID_Pilote = :id_utilisateur";
         $stmt = $this->db->prepare($deleteEvaluationQuery);
         $stmt->bindParam(':id_admin', $this->admin, PDO::PARAM_INT);
         $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
         $stmt->execute();
+        } catch (PDOException $e) {}
 
         // Vérifier si la suppression a réussi
         if ($stmt->rowCount() > 0) {
