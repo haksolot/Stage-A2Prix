@@ -167,12 +167,7 @@ class Pilot extends User
         $stmt->execute();
         } catch (PDOException $e) {}
 
-        // Vérifier si la suppression a réussi
-        if ($stmt->rowCount() > 0) {
-            return true; // L'étudiant a été supprimé avec succès
-        } else {
-            return false; // Échec de la suppression de l'étudiant
-        }
+    header("Location: ../dashboard");
     }
 
     function updatePilote($currentId){
