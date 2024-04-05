@@ -23,4 +23,13 @@
             return false;
         }
     }
+
+    function checkAdmin($a){
+        if (isset($a['role']) && $a['role'] == 'admin') {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 ?>

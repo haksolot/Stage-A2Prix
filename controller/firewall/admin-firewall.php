@@ -5,8 +5,13 @@
     checkLogin($_SESSION);
     $student = checkStudent($_SESSION);
     $pilot = checkPilot($_SESSION);
-    if($student == true) {
+    $admin = checkAdmin($_SESSION);
 
+    if($admin == true){
+
+    }
+    else if($student == true) {
+        header("Location: /dashboard");
     }
     else if($pilot == true) {
         header("Location: /pilot-dashboard");
