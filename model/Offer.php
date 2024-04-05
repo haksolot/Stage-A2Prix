@@ -153,30 +153,37 @@ class Offer extends Pilot
         }
     }
 
-    public function deleteOffer()
+    public function deleteOffer($idToDelete)
     {
         // Supprimer le stage de la table Stage :
+        try{
         $deleteInternshipQuery = "DELETE FROM Stage WHERE ID_Stage = :id_stage";
         $stmt = $this->db->prepare($deleteInternshipQuery);
-        $stmt->bindParam(':id_stage', $this->offer_id, PDO::PARAM_INT);
+        $stmt->bindParam(':id_stage', $idToDelete, PDO::PARAM_INT);
         $stmt->execute();
+        } catch (PDOException $e) {
+
+        }
 
         // Ensuite, suppression des tables dépandantes du stage :
+        try{
         $deleteCandidaterQuery = "DELETE FROM Candidater WHERE ID_Stage = :id_stage";
         $stmt = $this->db->prepare($deleteEvaluationQuery);
-        $stmt->bindParam(':id_stage', $this->offer_id, PDO::PARAM_INT);
+        $stmt->bindParam(':id_stage', $idToDelete, PDO::PARAM_INT);
         $stmt->execute();
+        } catch (PDOException $e) {
 
+        }
+
+        try{
         $deleteSouhaiterQuery = "DELETE FROM Souhaiter WHERE ID_Stage = :id_stage";
         $stmt = $this->db->prepare($deleteSouhaiterQuery);
-        $stmt->bindParam(':id_stage', $this->offer_id, PDO::PARAM_INT);
+        $stmt->bindParam(':id_stage', $idToDelete, PDO::PARAM_INT);
         $stmt->execute();
+        } catch (PDOException $e) {
 
-        // Vérifier si la suppression a réussi
-        if ($stmt->rowCount() > 0) {
-            return true; // L'étudiant a été supprimé avec succès
-        } else {
-            return false; // Échec de la suppression de l'étudiant
         }
+
+        header("Location: ../dashboard");
     }
 }
