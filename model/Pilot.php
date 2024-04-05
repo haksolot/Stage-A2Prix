@@ -116,13 +116,13 @@ class Pilot extends User
         }
     }
 
-    public function deletePilot()
+    public function deletePilot($idToDelete)
     {
         // Supprimer pilote de la table pilote
         try{
         $deletePilotQuery = "DELETE FROM Pilote WHERE ID_Pilote = :id_utilisateur";
         $stmt = $this->db->prepare($deletePiloteQuery);
-        $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(':id_utilisateur', $idToDelete, PDO::PARAM_INT);
         $stmt->execute();
         } catch (PDOException $e) {}
 
@@ -130,7 +130,7 @@ class Pilot extends User
         try{
         $deleteUserQuery = "DELETE FROM Utilisateur WHERE ID_User = :id_utilisateur";
         $stmt = $this->db->prepare($deleteUserQuery);
-        $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(':id_utilisateur', $idToDelete, PDO::PARAM_INT);
         $stmt->execute();
         } catch (PDOException $e) {}
 
@@ -138,14 +138,14 @@ class Pilot extends User
         try{
         $deleteEvaluationQuery = "DELETE FROM EVP WHERE ID_Pilote = :id_utilisateur";
         $stmt = $this->db->prepare($deleteEvaluationQuery);
-        $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(':id_utilisateur', $idToDelete, PDO::PARAM_INT);
         $stmt->execute();
         } catch (PDOException $e) {}
 
         try{
         $deletePromotionQuery = "DELETE FROM Promotion WHERE ID_Pilote = :id_utilisateur";
         $stmt = $this->db->prepare($deleteEvaluationQuery);
-        $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(':id_utilisateur', $idToDelete, PDO::PARAM_INT);
         $stmt->execute();
         }
         catch (PDOException $e) {}
@@ -155,7 +155,7 @@ class Pilot extends User
         $updateEntrepriseQuery = "UPDATE Entreprise SET ID_Admin = :id_admin, ID_Pilote = NULL WHERE ID_Pilote = :id_utilisateur";
         $stmt = $this->db->prepare($deleteEvaluationQuery);
         $stmt->bindParam(':id_admin', $this->admin, PDO::PARAM_INT);
-        $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(':id_utilisateur', $idToDelete, PDO::PARAM_INT);
         $stmt->execute();
         } catch (PDOException $e) {}
 
@@ -163,7 +163,7 @@ class Pilot extends User
         $updateStudentQuery = "UPDATE Étudiant SET ID_Admin = :id_admin, ID_Pilote = NULL WHERE ID_Pilote = :id_utilisateur";
         $stmt = $this->db->prepare($deleteEvaluationQuery);
         $stmt->bindParam(':id_admin', $this->admin, PDO::PARAM_INT);
-        $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(':id_utilisateur', $idToDelete, PDO::PARAM_INT);
         $stmt->execute();
         } catch (PDOException $e) {}
 
