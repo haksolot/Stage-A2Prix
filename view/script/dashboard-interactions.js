@@ -1,5 +1,5 @@
 function ModifieAccount(){
-    window.location.href="account-edit-student.html";
+    window.location.href="account-edit-student.php";
 }
 
 
