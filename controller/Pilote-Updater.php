@@ -9,6 +9,7 @@ if (isset($_POST['name']) && isset($_POST['surname'])) {
     $Pilote->setSurname($_POST['surname']);
 
     $Pilote->updatePilote($idCurrentPilote);
+
 }
 
 

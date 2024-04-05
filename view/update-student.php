@@ -15,9 +15,12 @@
             <input type="text" name="surname" id="surname" placeholder="Prénom">
         </div>
         <div class="row">
-            <input type="text" name="center" id="center" placeholder="Centre">
-            <input type="text" name="promotion" id="promotion" placeholder="Promotion assignée">
-            <button id="confirmation"></button>
+            <form id="container" method="post">
+                <input type="text" name="center" id="center" placeholder="Centre">
+                <input type="text" name="promotion" id="promotion" placeholder="Promotion assignée">
+                <button id="confirmation" name="confirmation"></button>
+                <button id="Delete" name="delete"></button>
+            </form>
         </div>
     </form>
 </body>

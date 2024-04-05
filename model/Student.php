@@ -3,16 +3,26 @@ require_once 'User.php';
 
 class Student extends User
 {
-    public $year, $pilote, $admin, $promotion, $center, $formation, $center_id, $promotion_id;
+    public $year, $id, $pilote, $admin, $promotion, $center, $formation, $center_id, $promotion_id;
 
     public function setYear($a)
     {
         $this->year = $a;
     }
 
+    public function setId($i)
+    {
+        $this->id = $i;
+    }
+
     public function getYear()
     {
         return $this->year;
+    }
+
+    public function getId()
+    {
+        return $this->id;
     }
 
     public function setPilote($a)
@@ -144,42 +154,51 @@ class Student extends User
         }
     }
 
-    public function deleteStudent()
+    public function deleteStudent($idToDelete)
     {
-        // Supprimer l'étudiant de la table Étudiant
+
         $deleteStudentQuery = "DELETE FROM Étudiant WHERE ID_Student = :id_utilisateur";
         $stmt = $this->db->prepare($deleteStudentQuery);
-        $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(':id_utilisateur', $idToDelete, PDO::PARAM_INT);
         $stmt->execute();
 
-        // Puis de User correspondant à l'étudiant
         $deleteUserQuery = "DELETE FROM Utilisateur WHERE ID_User = :id_utilisateur";
         $stmt = $this->db->prepare($deleteUserQuery);
-        $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
+        $stmt->bindParam(':id_utilisateur', $idToDelete, PDO::PARAM_INT);
         $stmt->execute();
 
-        // Ensuite, suppression des tables dépandantes del'étudiant
-        $deleteEvaluationQuery = "DELETE FROM EVE WHERE ID_Student = :id_utilisateur";
-        $stmt = $this->db->prepare($deleteEvaluationQuery);
-        $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
-        $stmt->execute();
+        try {
+            $deleteEvaluationQuery = "DELETE FROM EVE WHERE ID_Student = :id_utilisateur";
+            $stmt = $this->db->prepare($deleteEvaluationQuery);
+            $stmt->bindParam(':id_utilisateur', $idToDelete, PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (PDOException $e) {
 
-        $deleteCandidaterQuery = "DELETE FROM Candidater WHERE ID_Student = :id_utilisateur";
-        $stmt = $this->db->prepare($deleteCandidaterQuery);
-        $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
-        $stmt->execute();
-
-        $deleteSouahiterQuery = "DELETE FROM Souhaiter WHERE ID_Student = :id_utilisateur";
-        $stmt = $this->db->prepare($deleteSouhaiterQuery);
-        $stmt->bindParam(':id_utilisateur', $this->id, PDO::PARAM_INT);
-        $stmt->execute();
-
-        // Vérifier si la suppression a réussi
-        if ($stmt->rowCount() > 0) {
-            return true; // L'étudiant a été supprimé avec succès
-        } else {
-            return false; // Échec de la suppression de l'étudiant
         }
+        
+        
+        
+
+        try{
+            $deleteCandidaterQuery = "DELETE FROM Candidater WHERE ID_Student = :id_utilisateur";
+            $stmt = $this->db->prepare($deleteCandidaterQuery);
+            $stmt->bindParam(':id_utilisateur', $idToDelete, PDO::PARAM_INT);
+            $stmt->execute();
+        }catch (PDOException $e) {
+
+        }
+        
+        
+        try{
+            $deleteSouhaiterQuery = "DELETE FROM Souhaiter WHERE ID_Student = :id_utilisateur";
+            $stmt = $this->db->prepare($deleteSouhaiterQuery);
+            $stmt->bindParam(':id_utilisateur', $idToDelete, PDO::PARAM_INT);
+            $stmt->execute();
+        }catch (PDOException $e) {
+
+        }
+       
+        header("Location: ../dashboard");
     }
 
     public function checkSameLine(){
@@ -245,12 +264,9 @@ class Student extends User
     }
 
 
-    public function updateStudent($idToModif){
-
-        if ($this->checkIdExist($idToModif) == true) {
-
+    public function updateStudent($modifId){
             if ($this->checkCenterAndPromoExist() == true){
-
+            echo'abie';
                 $insertUserQuery = "UPDATE utilisateur
                 SET Nom_user = :nName, Prenom_user = :nSurname
                 WHERE ID_User = :userId;
@@ -268,13 +284,67 @@ class Student extends User
                 $stmt->bindParam(':nName', $this->name, PDO::PARAM_STR);
                 $stmt->bindParam(':nSurname', $this->surname, PDO::PARAM_STR);
                 $stmt->bindParam(':promo', $this->promotion, PDO::PARAM_STR);
-                $stmt->bindParam(':userId', $idToModif, PDO::PARAM_STR);
+                $stmt->bindParam(':userId', $modifId, PDO::PARAM_STR);
                 $stmt->execute();
                 header("Location: ../dashboard");
             }
 
-        }
-
     }
+
+    public function getUserNameByIndex($index){
+        $insertUserQuery = "SELECT u.Nom_user, u.Prenom_user
+        FROM utilisateur u
+        INNER JOIN étudiant e ON u.ID_User = e.ID_Student";
+        $stmt = $this->db->prepare($insertUserQuery);
+        $stmt->execute();
+    
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+        if (!empty($results) && isset($results[$index - 1])) {
+            $user = $results[$index - 1];
+            return $user['Prenom_user'] . " " . $user['Nom_user'];
+        } else {
+            return "Aucun résultat trouvé pour cet index.";
+        }
+    }
+
+    public function studentNumber(){
+        $insertUserQuery = "
+            SELECT COUNT(*) AS Nombre_de_resultats
+            FROM utilisateur u
+            INNER JOIN étudiant e ON u.ID_User = e.ID_Student
+        ";
+    
+        $stmt = $this->db->prepare($insertUserQuery);
+        $stmt->execute();
+        
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        return $result['Nombre_de_resultats'];
+    }
+
+    public function findUserId($nameToTrim) {
+        $insertUserQuery = "
+        SELECT ID_User
+        FROM utilisateur
+        WHERE CONCAT(Prenom_user, ' ', Nom_user) = TRIM(:name);
+        ";
+    
+        $stmt = $this->db->prepare($insertUserQuery);
+        $stmt->bindParam(':name', $nameToTrim, PDO::PARAM_STR);
+        $stmt->execute();
+    
+        $userId = $stmt->fetchColumn();
+    
+        $userId = (string) $userId;
+
+        return $userId;
+    }
+    
+    
+    
+    
+    
+    
 
 }

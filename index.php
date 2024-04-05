@@ -56,6 +56,10 @@ switch ($request_uri) {
         // Route pour la page de connexion
         include 'view/update-student.php';
         break;
+    case '/list/students':
+        // Route pour la page de connexion
+        include 'view/student-list.php';
+        break;
     case '/edit/pilote':
         // Route pour la page de connexion
         include 'view/update-pilote.php';
